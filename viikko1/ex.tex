@@ -1,0 +1,132 @@
+\documentclass[10pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[ruled,linesnumbered,noend]{algorithm2e}
+\usepackage{empheq}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{gensymb}
+
+\title{Kvanttilaskenta, kevät 2015 -- Viikko 1}
+\author{Rodion ``rodde'' Efremov}
+
+\begin{document}
+ \maketitle
+ 
+ \section*{edx Problem 1}
+ Väite
+ \[
+ \ket{0} = \begin{pmatrix}
+ 0 \\
+ 0
+ \end{pmatrix}
+ \]
+ ei pidä paikkansa, sillä
+ \[
+ \ket{0} = \begin{pmatrix}
+ 1 \\
+ 0
+ \end{pmatrix}.
+ \]
+ 
+ \section*{edx Problem 2}
+ Väite
+ \[
+ \ket{1} = \begin{pmatrix}
+ 1 \\
+ 1
+ \end{pmatrix}
+ \]
+ ei pidä paikkansa, sillä
+ \[
+ \ket{1} = \begin{pmatrix}
+ 0 \\
+ 1
+ \end{pmatrix}.
+ \]
+ 
+ \section*{edx Problem 3}
+ \color{blue} A quantum state is a unit vector in a complex vector space.
+ \color{black} Väite pitää paikkansa: kvanttitila on $q = (\alpha, \beta) \in \mathbb{C}^2$ siten, että $|q| = 1$.
+ 
+ \section*{edx Problem 4}
+ \color{blue} Measurements can only be performed in the computational (standard) basis.
+ \color{black} Väite ei pidä paikkansa: voidaan käyttää mielivaltaista kantaa.
+ 
+ \section*{edx Problem 5}
+ \color{blue} The probability amplitude of $\ket{x}$ is equal to the probability that the outcome of a measurement is $x$.
+ \color{black} No, but the square of that probability amplitude is the probability of measuring $\ket{x}$.
+ 
+ \section*{edx Problem 6}
+ \color{blue} The inner product of $\ket{+}$ and $\ket{-}$ is 1.
+ \color{black} No, it's 0 for the two vectors are orthogonal to each other.
+ 
+ \section*{edx Problem 7}
+ \color{blue} In $\mathbb{C}^2$, how many \textbf{real} unit vectors are there whose projection onto $\ket{1}$ has length $\frac{\sqrt{3}}{2}$?
+ \color{black} Assume we are given a vector $\alpha \ket{0} + \beta \ket{1}$. Because the vector is assumed to be real, $\alpha, \beta$ are real. What comes to $\beta$, its norm is $\frac{\sqrt{3}}{2}$ and so $\beta = \pm\frac{\sqrt{3}}{2}$. Now 
+ \begin{align*}
+ \alpha^2 &= 1 - \beta^2 \\
+                &= 1 - \frac{3}{4} \\
+                &= \frac{1}{4},
+\end{align*}
+so $\alpha = \pm \frac{1}{2}$. In total, we obtain 4 value combinations: answer is 4 vectors.
+
+\section*{edx Problem 8}
+\color{blue} In $\mathbb{C}^2$, how many unit vectors are there whose projection onto $\ket{1}$ has length $\frac{\sqrt{3}}{2}$?
+\color{black} Infinite amount of unit vectors as one can ``spin'' such vector around the $\ket{1}$.
+
+\section*{edx Problem 10}
+\color{blue} Suppose we have a qubit in the state $\ket{\psi} = \frac{1}{2}\ket{0} + \frac{\sqrt{3}}{2}\ket{1}$. If we measure this qubit in $\ket{u} = \frac{\sqrt{3}}{2} \ket{0} + \frac{1}{2} \ket{1}$, $\ket{u^{\perp}} = - \frac{1}{2} \ket{0} + \frac{\sqrt{3}}{2} \ket{1}$ basis, what is the probability that the outcome is $u$?
+\color{black} Tehtävä ratkeaa laskemalla $\ket{\psi}$:n ja $\ket{u}$:n välinen kulma $\theta$. Tuolloin todennäköisyys sille, että mitataan $\ket{u}$ on $\cos^2 \theta$, jolle
+\begin{align*}
+\cos \theta &= \ket{\psi} \cdot \ket{u} \\
+                  &= \Bigg( \frac{1}{2} \times \frac{\sqrt{3}}{2} + \frac{\sqrt{3}}{2} \times \frac{1}{2} \Bigg) \\
+                  &= \Bigg( \frac{\sqrt{3}}{4} + \frac{\sqrt{3}}{2} \Bigg) \\ 
+                  &= \frac{\sqrt{3}}{2},
+\end{align*}
+jolloin kysytty todennäköisyys on $\frac{3}{4}$.
+
+\section*{edx Problem 11}
+\color{blue} Let $\ket{\phi} = a\ket{0} + b\ket{1}$ where $a$ and $b$ are nonnegative real numbers. We know that if we measure $\ket{\phi}$ in the standard basis, the probability of getting $a$ is $\frac{9}{25}$. What is $\ket{\phi}$?
+\color{black} The probability $|a|^2 = \frac{9}{25}$, so $a = \frac{3}{5}$ ($a$ nonnegative). Because $a^2 + b^2 = 1$ we obtain $b = \sqrt{1 - a^2} = \sqrt{\frac{16}{25}} = \frac{4}{5}$, so $\ket{\phi} = \frac{3}{5} \ket{0} + \frac{4}{5} \ket{1}$. 
+
+\section*{edx Problem 12}
+\color{blue} We have a qubit in the state $\ket{\phi} = \frac{\sqrt{3}}{2} \ket{0} + \frac{1}{2} \ket{1}$, which we want to measure in the $\{ cos \theta \ket{0} + \sin \theta \ket{1}, \sin \theta \ket{0} - \cos \theta \ket{1} \}$ basis. In order for the two possible outcomes to be equiprobable, what should be the value of $\theta$ in degrees?
+\color{black} Let $\alpha$ be the angle between $\ket{0}$ and $\ket{\phi}$. We can compute it: $\alpha = \cos^{-1}(\frac{\sqrt{3}}{2})$ which is 30 degrees. Now let us check that the measurement basis is orthogonal:
+\begin{align*}
+(\cos \theta, \sin \theta) \cdot (\sin \theta, -\cos \theta) &= \cos \theta \sin \theta - \sin \theta \cos \theta \\
+  &= 0.
+\end{align*}
+We aim at $30$ degrees + $90 / 2$ = $75$ degrees.
+
+\section*{edx Problem 13}
+\subsection*{a)}
+\color{blue} A vertically polarized photon goes through two polarizing filters, the first of which is vertically aligned and the second at 45 degrees. What is the probability that the photon is transmitted through both filters?
+\color{black} Because the first filter is aligned vertically, it will transmit the photon with probability 1. The probability that the photon will be transmitted through the second filter is $\frac{1}{2}$ because $\cos(45 \text{ degrees}) = \sin(45 \text{ degrees}) = \frac{1}{\sqrt{2}}$.
+
+\subsection*{b)}
+\color{blue} Now, you are allowed to place a polarizing filter between the two filters in the previous question. If you wish to maximize the probability that the photon is transmitted through all three filters, what angle would you orient the additional filter? Here, assume that a $0^{\deg}$ filter corresponds to a horizontal filter and $90^{\deg}$ a vertical filter. Provide your answer in degrees as a real number between 0 and 90.
+\color{black} So the first filter is oriented at $90\degree$ and the third at $45\degree$. Assume the orientation of the middle filter is $\theta$ degrees. We want to maximize the following expression \[
+f(\theta) = \cos^2 (\frac{\pi}{2} - \theta) + \cos^2 (\theta - \frac{\pi}{4}).
+\]
+The derivative of $f$ is \begin{align*}
+2\cos(\frac{\pi}{2} - \theta)(-1) + 2\cos (\theta - \frac{\pi}{4}) &= 2\Big(\cos(\theta - \frac{\pi}{4}) - \cos(\frac{\pi}{2} - \theta)\Big).
+\end{align*} 
+Let us compute $\theta$ at which the first derivative of $f$ is zero:
+\begin{align*}
+f'(\theta) =& 2\Big(\cos(\theta - \frac{\pi}{4}) - \cos(\frac{\pi}{2} - \theta)\Big) &= 0 & \longrightarrow \\
+              & \cos(\theta - \frac{\pi}{4})
+\end{align*}
+\subsection*{c)}
+\color{blue}
+\color{black}
+
+\end{document}
