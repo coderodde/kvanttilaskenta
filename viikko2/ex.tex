@@ -220,4 +220,125 @@ X \ket{-} &= X \frac{\ket{0} - \ket{1}}{\sqrt{2}} \\
                &= \ket{+}.
 \end{align*}
 
+\section*{QCE 3.4} 
+The operator is $\hat{A} = i \ket{1} \bra{1} + \frac{\sqrt{3}}{2} \ket{1} \bra{2} + 2 \ket{2} \ket{1} - \ket{2} \bra{3}$. Now, 
+\begin{align*}
+\hat{A}^{\dag} &= -i \braket{1 | 1} + \frac{\sqrt{3}}{2} \braket{ 1 | 2 } + 2 \braket{2 | 1} - \braket{2 | 3} \\
+                       &= -i.
+\end{align*}
+
+\section*{QCE 3.5}
+The X operator is given by the matrix
+\begin{align*}
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}
+\end{align*}
+and we wish to find $\lambda$, $(a \quad b)^T$ such that
+\begin{align*}
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+a \\
+b
+\end{pmatrix} =
+\lambda \begin{pmatrix}
+a \\
+b
+\end{pmatrix}.
+\end{align*}
+Now
+\begin{align*}
+\begin{pmatrix}
+b \\
+a
+\end{pmatrix} = \lambda \begin{pmatrix}
+a \\
+b
+\end{pmatrix},
+\end{align*}
+so $b = \lambda a$ and $a = \lambda b$. If $\lambda = 1$, the corresponding eigenvector is $(1, 1)^T$. If $\lambda = 0$, the eigenvector is $(0, 0)^T$.
+
+\section*{QCE 3.6}
+As the matrix of Y-operator is
+\[
+\begin{pmatrix}
+0 & -i \\
+i & 0
+\end{pmatrix},
+\]
+it is evident that its trace is 0.
+
+\section*{QCE 3.7}
+\begin{align*}
+\begin{pmatrix}
+1 & 0 & 2 \\
+0 & 3 & 4 \\
+1 & 0 & 2
+\end{pmatrix} \begin{pmatrix}
+a \\
+b \\
+c \\
+\end{pmatrix} = \begin{pmatrix}
+a + 2c \\
+3b + 4c \\
+a + 2c
+\end{pmatrix} = 
+\begin{pmatrix}
+\lambda a \\
+\lambda b \\
+\lambda c
+\end{pmatrix}.
+\end{align*}
+Its clear that $a = b$. Also $3b + 4c = \lambda b$, which implies $4c = (\lambda - 3)b$, and $c = \frac{1}{4}(\lambda - 3)b$. It follows that $\lambda \in \mathbb{R}$.
+
+\section*{QCE 3.8}
+Suppose
+\[
+A = \begin{pmatrix}
+a_{1, 1} & \dots & a_{1,n} \\
+\vdots & \ddots & \vdots \\
+a_{n, 1} & \dots & a_{n, n}
+\end{pmatrix},
+B = \begin{pmatrix}
+b_{1, 1} & \dots & b_{1,n} \\
+\vdots & \ddots & \vdots \\
+b_{n, 1} & \dots & b_{n, n}
+\end{pmatrix}.
+\]
+ Now, it is easy to see that 
+\begin{align*}
+Tr(A + B) &= (a_{1, 1} + b_{1, 1}) + \dots + (a_{n,n} + b_{n, n}) \\
+               &= (a_{1,1} + \dots + a_{n,n})  + (b_{1,1} + \dots + b_{n,n}) \\
+               &= Tr(A) + Tr(B).
+\end{align*}
+Also
+\begin{align*}
+  Tr(\lambda A) &= \lambda a_{1,1} + \dots + \lambda a_{n,n} \\
+                        &= \lambda Tr(A).
+\end{align*}
+Also-also
+\begin{align*}
+Tr(AB) &= a_{1, 1}b_{1,1} + \dots + a_{n,n}b_{n,n} \\
+          &= b_{1, 1}a_{1,1} + \dots + b_{n,n}a_{n,n} \\
+          &= Tr(BA),
+\end{align*}
+as real multiplication commutes.
+
+\section*{QCE 3.9}
+\[
+P_+ = \frac{1}{2} ( \ket{0} \bra{0} + \ket{0} \bra{1} +\ket{1} \bra{0} +\ket{1} \bra{1}).
+\]
+\[
+P_- = \frac{1}{2} (\ket{0} \bra{0} - \ket{0} \bra{1} -\ket{1} \bra{0} +\ket{1} \bra{1}).
+\]
+Now 
+\[
+P_+ - P_- = \ket{0} \bra{1} + \ket{1} \bra{0} = X.
+\]
+
+\section*{QCE 3.10}
 \end{document}
