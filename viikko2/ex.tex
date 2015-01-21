@@ -83,4 +83,141 @@ bc &= \frac{\sqrt{3}}{2\sqrt{2}}, \\
 bd &= -\frac{\sqrt{3}}{2\sqrt{2}}.
 \end{align*}
 The way to factorize is to assign $a = \frac{1}{2}$, $b = \frac{\sqrt{3}}{2}$, $c = \frac{1}{\sqrt{2}}$, $d = -\frac{1}{\sqrt{2}}$, so $|a| = \frac{1}{2}$.
+
+\section*{edx Problem 13}
+\subsection*{(a)} 
+The probability is $\frac{1}{2}$.
+
+\subsection*{(b)}
+$\ket{+} = \frac{1}{\sqrt{2}} \ket{0} + \frac{1}{\sqrt{2}} \ket{1}$.
+
+\section*{edx Problem 14}
+\[
+\Bigg( \frac{4}{5} \Bigg)^2 + \Bigg( -\frac{2}{5} \Bigg)^2 = \frac{16}{25} + \frac{4}{25} = \frac{20}{25}.
+\]
+
+\section*{edx Problem 15}
+$\ket{0+}, \ket{0-}, \ket{1+}, \ket{1-}$.
+
+\section*{edx Problem 16}
+There si no way to entangle two qubits by a partial measurement.
+
+\section*{edx Problem 17}
+As 
+\[
+\ket{0} = \frac{1}{\sqrt{2}} \ket{+} + \frac{1}{\sqrt{2}} \ket{-}, \ket{1} = \frac{1}{\sqrt{2}} \ket{+} - \frac{1}{\sqrt{2}} \ket{-},
+\]
+we have that
+\begin{align*}
+\ket{\psi} &= \frac{1}{\sqrt{2}} \ket{0} + \frac{e^{i\theta}}{\sqrt{2}} \ket{1} \\
+                &= \frac{1}{\sqrt{2}} \Bigg( \frac{1}{\sqrt{2}} \ket{+} + \frac{1}{\sqrt{2}} \ket{-} \Bigg) + \frac{e^{i\theta}}{\sqrt{2}} \Bigg( \frac{1}{\sqrt{2}} \ket{+} - \frac{1}{\sqrt{2}} \ket{-} \Bigg) \\
+                &= \frac{1}{2} \ket{+} + \frac{1}{2} \ket{-} + \frac{e^{i \theta}}{2} \ket{+} - \frac{e^{i \theta}}{2} \ket{-} \\
+                &= \frac{1 + e^{i \theta}}{2} \ket{+} + \frac{1 - e^{i \theta}}{2} \ket{-}.
+\end{align*}
+
+\section*{edx Problem 18}
+\[
+\frac{1 + \cos \theta}{2}.
+\]
+
+\section*{QCE 3.1}
+$\ket{\psi} = \alpha \ket{0} + \beta \ket{1}$. $X = \ket{0} \bra{1} + \ket{1} \bra{0}$. $Y  = -i\ket{0} \bra{1} + i\ket{1} \bra{0}$. Now
+\begin{align*}
+X\ket{\psi} &= (\ket{0} \bra{1} + \ket{1} \bra{0}) (\alpha \ket{0} + \beta \ket{1}) \\
+                  &= \alpha ( \ket{0} \bra{1} + \ket{1} \bra{0}) \ket{0} + \beta ( \ket{0} \bra{1} + \ket{1} \bra{0} ) \ket{1} \\
+                  &= \alpha (\ket{0} \braket{ 1 | 0 } + \ket{1} \braket{ 0 | 0 }) + \beta ( \ket{0} \braket{ 1 | 1 } + \ket{1}  \braket{ 0 | 1 }) \\
+                  &= \alpha \ket{0} \times 0 + \alpha \ket{1} \times 1 + \beta \ket{0} \times 1 + \beta \ket{1} \times 0 \\
+                  &= \alpha \ket{1} + \beta \ket{0}.
+\end{align*}
+\begin{align*}
+Y \ket{\psi} &= (-i \ket{0} \bra{1} + i \ket{1} \bra{0}) (\alpha \ket{0} + \beta \ket{1}) \\
+                  &= \alpha (-i \ket{0} \bra{1} + i \ket{1} \bra{0}) \ket{0} + \beta ( -i \ket{0} \bra{1} + i \ket{1} \bra{0} ) \ket{1} \\
+                  &= \alpha ( -i \ket{0} \braket{ 1 | 0 } + i \ket{1} \braket{ 0 | 0 } ) + \beta ( -i \ket{0} \braket{ 1 | 1 } + i \ket{1} \braket{ 0 | 1 }  ) \\
+                  &= \alpha i \ket{1} + \beta (-i) \ket{0} \\
+                  &= \alpha i \ket{1} - \beta i \ket{0}.
+\end{align*}
+
+\section*{QCE 3.2}
+Suppose we have a qubit 
+\[
+\begin{pmatrix}
+\alpha \\
+\beta
+\end{pmatrix}.
+\]
+Now 
+\begin{align*}
+\begin{pmatrix}
+0 & 1 \\
+1 & 0 
+\end{pmatrix}
+\begin{pmatrix}
+\alpha \\
+\beta
+\end{pmatrix} = 
+\begin{pmatrix}
+0 \times \alpha + 1 \times \beta \\
+1 \times \alpha + 0 \times \beta
+\end{pmatrix} = 
+\begin{pmatrix}
+\beta \\
+\alpha
+\end{pmatrix}.
+\end{align*}
+
+\section*{QCE 3.3}
+\begin{align*}
+\ket{+} = \frac{\ket{0} + \ket{1}}{\sqrt{2}}, \ket{-} = \frac{\ket{0} - \ket{1}}{\sqrt{2}}.
+\end{align*}
+Now
+\begin{align*}
+X \ket{+} &= X \frac{\ket{0} + \ket{1}}{\sqrt{2}} \\
+               &= X \begin{pmatrix}
+               \frac{1}{\sqrt{2}} \\
+               \frac{1}{\sqrt{2}}
+               \end{pmatrix} \\
+               &= \begin{pmatrix}
+               1 & 0 \\
+               0 & - 1 
+               \end{pmatrix} \begin{pmatrix}
+               \frac{1}{\sqrt{2}} \\
+               \frac{1}{\sqrt{2}}
+               \end{pmatrix} \\
+               & = \begin{pmatrix}
+               1 \times \frac{1}{\sqrt{2}} + 0 \times \frac{1}{\sqrt{2}} \\
+               0 \times \frac{1}{\sqrt{2}} - 1 \frac{1}{\sqrt{2}}
+               \end{pmatrix} \\
+                &= \begin{pmatrix}
+               \frac{1}{\sqrt{2}} \\
+               - \frac{1}{\sqrt{2}}
+               \end{pmatrix} \\
+               &= \frac{\ket{0} - \ket{1}}{\sqrt{2}} \\
+               &= \ket{-}.
+\end{align*}
+Also 
+\begin{align*}
+X \ket{-} &= X \frac{\ket{0} - \ket{1}}{\sqrt{2}} \\
+               &= X \begin{pmatrix}
+               \frac{1}{\sqrt{2}} \\
+               - \frac{1}{\sqrt{2}}
+               \end{pmatrix} \\
+               &= \begin{pmatrix}
+               1 & 0 \\
+               0 & - 1 
+               \end{pmatrix} \begin{pmatrix}
+               \frac{1}{\sqrt{2}} \\
+               - \frac{1}{\sqrt{2}}
+               \end{pmatrix} \\
+               & = \begin{pmatrix}
+               1 \times \frac{1}{\sqrt{2}} + 0 \times -\frac{1}{\sqrt{2}} \\
+               0 \times \frac{1}{\sqrt{2}} - 1 \Bigg(-\frac{1}{\sqrt{2}} \Bigg)
+               \end{pmatrix} \\
+                &= \begin{pmatrix}
+               \frac{1}{\sqrt{2}} \\
+               \frac{1}{\sqrt{2}}
+               \end{pmatrix} \\
+               &= \frac{\ket{0} + \ket{1}}{\sqrt{2}} \\
+               &= \ket{+}.
+\end{align*}
+
 \end{document}
