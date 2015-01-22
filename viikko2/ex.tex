@@ -772,5 +772,87 @@ Now we have
 \alpha \delta &= \beta \gamma \\
 					  &= 0.
 \end{align*}
-Obviously, either $\alpha = 0$ and/or $\delta = 0$. In any case, either $\alpha\gamma = 0$ and/or $\beta \delta = 0$, when they should be non-zero, so it is not possible to write $\ket{\psi}$ as a product state. 
+Obviously, either $\alpha = 0$ and/or $\delta = 0$. In any case, either $\alpha\gamma = 0$ and/or $\beta \delta = 0$, when they should be non-zero, so it is not possible to write $\ket{\psi}$ as a product state.
+
+\section*{QCE 4.7}
+ Let 
+ \[
+ \ket{\psi} = \frac{ \ket{ 0 } \ket{ 1 } - \ket{ 1 } \ket{ 0 } }{ \sqrt{ 2 } } =
+ \begin{pmatrix}
+ 0 \\
+ \frac{1}{\sqrt{2}} \\
+ -\frac{1}{\sqrt{2}} \\
+ 0
+ \end{pmatrix}.
+ \]
+ Since
+ \[
+ X = \begin{pmatrix}
+ 0 & 1 \\
+ 1 & 0
+ \end{pmatrix}, \qquad
+ Y = \begin{pmatrix}
+ 0 & -i \\
+ i & 0
+ \end{pmatrix}
+ \]
+\begin{align*}
+X \otimes Y = 
+\begin{pmatrix}
+0 & 0 & 0 & -i \\
+0 & 0 & i & 0 \\
+0 & -i & 0 & 0 \\
+i & 0 & 0 & 0
+\end{pmatrix}.
+\end{align*}
+Now,
+\begin{align*}
+X \otimes Y \ket{\psi} &= 
+\begin{pmatrix}
+0 & 0 & 0 & -i \\
+0 & 0 & i & 0 \\
+0 & -i & 0 & 0 \\
+i & 0 & 0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+0 \\
+\frac{1}{\sqrt{2}} \\
+- \frac{1}{\sqrt{2}} \\
+0
+\end{pmatrix} \\
+   &= 
+   \begin{pmatrix}
+   0 \\
+   -\frac{i}{\sqrt{2}} \\
+   -\frac{i}{\sqrt{2}} \\
+   0
+   \end{pmatrix} \\
+   &= -\frac{-i\ket{0} \ket{1} - i \ket{1} \ket{0}}{\sqrt{2}}.
+\end{align*}
+
+\section*{QCE 4.8}
+We are asked to show that $(A \otimes B)^{\dag} = A^{\dag} \otimes B^{\dag}$. Now,
+\begin{align*}
+(A \otimes B)^{\dag} &=
+\Bigg(
+\begin{pmatrix}
+a_{1, 1} & \dots & a_{1, n} \\
+\vdots & \ddots & \vdots \\
+a_{n, 1} & \dots & a_{n, n}
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+b_{1, 1} & \dots & b_{1, n} \\
+\vdots & \ddots & \vdots \\
+b_{n, 1} & \dots & b_{n, n}
+\end{pmatrix}
+\Bigg)^{\dag} \\
+ &= 
+ \begin{pmatrix}
+ a_{1, 1} b_{1, 1} & \dots   & a_{1, 1} b_{1, n} & \dots & a_{1, n} b_{1, 1} & \dots  & a_{1, n} b_{1, n} \\
+ \vdots               & \ddots & \vdots               &          &                          & \ddots & \vdots \\
+ a_{1, 1} b_{n, 1} & \dots   & a_{1, 1} b_{n, n} & 
+ \end{pmatrix}^{\dag}
+\end{align*}
+
 \end{document}
