@@ -641,4 +641,136 @@ i & 0
    &= 0.
 \end{align*}
 
+\section*{QCE 4.1}
+The basis for $H$ is
+\begin{align*}
+\ket{w_1} &= \ket{0} \otimes \ket{0}, \\
+\ket{w_2} &= \ket{0} \otimes \ket{1}, \\
+\ket{w_3} &= \ket{1} \otimes \ket{0}, \\
+\ket{w_4} &= \ket{1} \otimes \ket{1}.
+\end{align*}
+First we show that $\ket{w_i}$ has unit length:
+\begin{align*}
+\braket{w_1 | w_1} &= (\bra{0} \otimes \bra{0})(\ket{0} \otimes \ket{0} ) \\
+							  &= \braket{ 0 | 0 } \braket{0 | 0} \\
+							  &= 1 \times 1 \\
+							  &= 1.
+\end{align*}\begin{align*}
+\braket{w_2 | w_2} &= (\bra{0} \otimes \bra{1})(\ket{0} \otimes \ket{1} ) \\
+							  &= \braket{ 0 | 0 } \braket{1 | 1} \\
+							  &= 1 \times 1 \\
+							  &= 1.
+\end{align*}\begin{align*}
+\braket{w_3 | w_3} &= (\bra{1} \otimes \bra{0})(\ket{1} \otimes \ket{0} ) \\
+							  &= \braket{ 1 | 1 } \braket{0 | 0} \\
+							  &= 1 \times 1 \\
+							  &= 1.
+\end{align*}\begin{align*}
+\braket{w_4 | w_4} &= (\bra{1} \otimes \bra{1})(\ket{1} \otimes \ket{1} ) \\
+							  &= \braket{ 1 | 1 } \braket{1 | 1} \\
+							  &= 1 \times 1 \\
+							  &= 1.
+\end{align*}
+Next we need to check the orthogonality of $\ket{w_i}$:
+\begin{align*}
+\braket{ w_1 | w_2  } &= ( \bra{ 0 } \otimes \bra{ 0 } ) ( \ket{ 0 } \otimes \ket{ 1 } ) \\
+ 					&= \braket{ 0 | 0 } \braket{ 0 | 1 } \\
+ 					&= 1 \times 0 \\
+ 					&= 0,
+\end{align*}
+\begin{align*}
+\braket{ w_1 | w_3  } &= ( \bra{ 0 } \otimes \bra{ 0 } ) ( \ket{ 1 } \otimes \ket{ 0 } ) \\
+ 					&= \braket{ 0 | 1 } \braket{ 0 | 0 } \\
+ 					&= 0 \times 1 \\
+ 					&= 0,
+\end{align*}
+\begin{align*}
+\braket{ w_1 | w_4  } &= ( \bra{ 0 } \otimes \bra{ 0 } ) ( \ket{ 1 } \otimes \ket{ 1 } ) \\
+ 					&= \braket{ 0 | 1 } \braket{ 0 | 1 } \\
+ 					&= 0 \times 0 \\
+ 					&= 0,
+\end{align*}
+\begin{align*}
+\braket{ w_2 | w_3  } &= ( \bra{ 0 } \otimes \bra{ 1 } ) ( \ket{ 1 } \otimes \ket{ 0 } ) \\
+ 					&= \braket{ 0 | 1 } \braket{ 1 | 0 } \\
+ 					&= 0 \times 0 \\
+ 					&= 0,
+\end{align*}
+\begin{align*}
+\braket{ w_2 | w_4  } &= ( \bra{ 0 } \otimes \bra{ 1 } ) ( \ket{ 1 } \otimes \ket{ 1 } ) \\
+ 					&= \braket{ 0 | 1 } \braket{ 1 | 1 } \\
+ 					&= 0 \times 1 \\
+ 					&= 0,
+\end{align*}
+\begin{align*}
+\braket{ w_3 | w_4  } &= ( \bra{ 1 } \otimes \bra{ 0 } ) ( \ket{ 1 } \otimes \ket{ 1 } ) \\
+ 					&= \braket{ 1 | 1 } \braket{ 0 | 1 } \\
+ 					&= 1 \times 0 \\
+ 					&= 0.
+\end{align*}
+Now we see that $\{ w_1, w_2, w_3, w_4 \}$ is a orthonormal basis.
+
+\section*{QCE 4.3}
+$\braket{a | b} = 1/2$, $\braket{c | d} = 3/4$. 
+\begin{align*}
+\braket{ \psi | \phi} &= \braket{ \ket{a} \otimes \ket{c} | \ket{b} \otimes \ket{d} } \\
+								&= (\bra{a} \otimes \bra{c}) ( \ket{b} \otimes \ket{d} ) \\
+								&= \braket{a | b} \braket{c | d} \\
+								&= \frac{1}{2} \times \frac{3}{4} \\
+								&= \frac{3}{8}.
+\end{align*}
+
+\section*{QCE 4.4}
+\[
+\ket{\psi} = \frac{1}{\sqrt{2}} \begin{pmatrix}
+1 \\
+1
+\end{pmatrix}, \quad \ket{\phi} = \frac{1}{2} \begin{pmatrix}
+1 \\
+\sqrt{3}
+\end{pmatrix}.
+\]
+Now the tensor product $\psi \otimes \phi$ is 
+\begin{align*}
+\Bigg( \frac{1}{\sqrt{2}} \ket{0} + \frac{1}{\sqrt{2}} \ket{1} \Bigg) \otimes \Bigg( \frac{1}{2} \ket{0} + \frac{\sqrt{3}}{2} \ket{1} \Bigg) &=
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} 
+\end{pmatrix}
+\otimes 
+\begin{pmatrix}
+\frac{1}{2} \\
+\frac{\sqrt{3}}{2}
+\end{pmatrix} \\
+   &=
+\begin{pmatrix}
+\frac{1}{2\sqrt{2}}  \\
+\frac{\sqrt{3}}{2 \sqrt{2}}  \\
+\frac{1}{2\sqrt{2}}  \\
+\frac{\sqrt{3}}{2\sqrt{2}}
+\end{pmatrix} \\
+  &= 
+\frac{1}{2\sqrt{2}} \ket{0} \ket{0} + \frac{\sqrt{3}}{2\sqrt{2}} \ket{0} \ket{1} + \frac{1}{2\sqrt{2}} \ket{1} \ket{0} + \frac{\sqrt{3}}{2\sqrt{2}} \ket{1} \ket{1}.
+\end{align*}
+
+\section*{QCE 4.5}
+\begin{align*}
+\ket{\psi} &= \frac{1}{2} ( \ket{0} \ket{0} - \ket{0} \ket{1} - \ket{1} \ket{0} + \ket{1} \ket{1} ) \\
+				&= \frac{ \ket{ 0 } - \ket{ 1 } }{\sqrt{2}} \otimes \frac{ \ket{ 0 } - \ket{ 1 } }{\sqrt{2}}.
+\end{align*}
+
+\section*{QCE 4.6}
+\begin{align*}
+\ket{\psi} &= \frac{\ket{0} \ket{0} + \ket{1} \ket{1}}{\sqrt{2}} \\
+				&= \Bigg( \alpha \ket{0} + \beta \ket{1} \Bigg) \otimes \Bigg( \gamma \ket{0} + \delta \ket{1} \Bigg) \\
+				&= \alpha \gamma \ket{0} \ket{0} + \alpha \delta \ket{0} \ket{1} + \beta \gamma \ket{1} \ket{0} + \beta \delta \ket{1} \ket{1}.
+\end{align*}
+Now we have
+\begin{align*}
+\alpha \gamma &= \beta \delta \\
+						 &= \frac{1}{\sqrt{2}}, \\
+\alpha \delta &= \beta \gamma \\
+					  &= 0.
+\end{align*}
+Obviously, either $\alpha = 0$ and/or $\delta = 0$. In any case, either $\alpha\gamma = 0$ and/or $\beta \delta = 0$, when they should be non-zero, so it is not possible to write $\ket{\psi}$ as a product state. 
 \end{document}
