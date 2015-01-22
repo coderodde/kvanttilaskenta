@@ -710,6 +710,14 @@ Next we need to check the orthogonality of $\ket{w_i}$:
 \end{align*}
 Now we see that $\{ w_1, w_2, w_3, w_4 \}$ is a orthonormal basis.
 
+\section*{QCE 4.2}
+In previous exercise we have seen that $\braket{ w_3 | w_4 } = 0.$ Now, let us verify that $\braket{ w_4 | w_3 } = 0$:
+\begin{align*}
+\braket{ w_4 | w_3 } &= ( \bra{1} \otimes \bra{1} ) ( \ket{1} \otimes \ket{0} ) \\
+								 &= \braket{ 1 | 1 } \braket{ 1 | 0 } \\
+								 &= 1 \times 0 \\
+								 &= 0.
+\end{align*}
 \section*{QCE 4.3}
 $\braket{a | b} = 1/2$, $\braket{c | d} = 3/4$. 
 \begin{align*}
@@ -901,6 +909,83 @@ b_{1, 1} & \dots & b_{1, n} \\
 b_{n, 1} & \dots & b_{n, n}
 \end{pmatrix}^{\dag} \\
 &= A^{\dag} \otimes B^{\dag}.
+\end{align*}
+
+\section*{QCE 4.9}
+Let 
+\[
+\ket{\psi} = \frac{\ket{00} + \ket{11}}{\sqrt{2}} = \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+0 \\
+0 \\
+\frac{1}{\sqrt{2}}
+\end{pmatrix}.
+\]
+As 
+\[
+I = \begin{pmatrix}
+1 & 0 \\
+0 & 1 
+\end{pmatrix}, \qquad
+Y = \begin{pmatrix}
+0 & -i \\
+i & 0
+\end{pmatrix},
+\]
+we have that
+\begin{align*}
+I \otimes Y &=
+\begin{pmatrix}
+0 & -i & 0 & 0 \\
+i  & 0  & 0 & 0 \\
+0 & 0 & 0  & -i \\
+0 & 0 & i   & 0
+\end{pmatrix},
+\end{align*}
+so
+\begin{align*}
+I \otimes Y \ket{\psi} &= 
+\begin{pmatrix}
+0 & -i & 0 & 0 \\
+i  & 0  & 0 & 0 \\
+0 & 0 & 0  & -i \\
+0 & 0 & i   & 0
+\end{pmatrix}
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+0 \\
+0 \\
+\frac{1}{\sqrt{2}}
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+0 \\
+\frac{i}{\sqrt{2}} \\
+-\frac{i}{\sqrt{2}} \\
+0
+\end{pmatrix}.
+\end{align*}
+
+\section*{QCE 4.10}
+We have 
+\begin{align*}
+X \otimes Y &= 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}
+\otimes 
+\begin{pmatrix}
+0 & -i \\
+i & 0
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+0 & 0  & 0 & -i \\
+0 & 0  & i  & 0  \\
+0 & -i & 0 & 0 \\
+i  & 0  & 0 & 0
+\end{pmatrix}.
 \end{align*}
 
 \end{document}
