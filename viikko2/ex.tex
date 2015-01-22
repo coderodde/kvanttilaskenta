@@ -849,10 +849,58 @@ b_{n, 1} & \dots & b_{n, n}
 \Bigg)^{\dag} \\
  &= 
  \begin{pmatrix}
- a_{1, 1} b_{1, 1} & \dots   & a_{1, 1} b_{1, n} & \dots & a_{1, n} b_{1, 1} & \dots  & a_{1, n} b_{1, n} \\
- \vdots               & \ddots & \vdots               &          &                          & \ddots & \vdots \\
- a_{1, 1} b_{n, 1} & \dots   & a_{1, 1} b_{n, n} & 
- \end{pmatrix}^{\dag}
+ a_{1, 1} b_{1, 1} & \dots   & a_{1, 1} b_{1, n} & \dots   & a_{1, n} b_{1, 1} & \dots    & a_{1, n} b_{1, n} \\
+ \vdots               & \ddots & \vdots               & \ddots &  \vdots              & \ddots  & \vdots \\
+ a_{1, 1} b_{n, 1} & \dots   & a_{1, 1} b_{n, n} & \dots   & a_{1, n} b_{n, 1} & \dots    & a_{1, n} b_{n, n} \\
+ \vdots               & \ddots &  \vdots              & \ddots & \vdots               & \ddots & \vdots \\
+ a_{n, 1} b_{1, 1} & \dots   & a_{n, 1} b_{1, n} & \dots   & a_{n, n} b_{1, 1} & \dots    & a_{n, n} b_{1, n} \\
+ \vdots               & \ddots & \vdots               & \ddots & \vdots               & \ddots  & \vdots \\
+ a_{n, 1} b_{n, 1} & \dots   & a_{n, 1} b_{n, n} & \dots   & a_{n, n} b_{n, 1} & \dots    & a_{n, n} b_{n, n}
+ \end{pmatrix}^{\dag} \\
+ &= \begin{pmatrix}
+ (a_{1, 1} b_{1, 1})^{\star} & \dots   & (a_{1, 1} b_{1, n})^{\star} & \dots   & (a_{1, n} b_{1, 1})^{\star} & \dots    & (a_{1, n} b_{1, n})^{\star} \\
+ \vdots                            & \ddots & \vdots                             & \ddots &  \vdots                            & \ddots  & \vdots \\
+ (a_{1, 1} b_{n, 1})^{\star} & \dots   & (a_{1, 1} b_{n, n})^{\star} & \dots   & (a_{1, n} b_{n, 1})^{\star} & \dots    & (a_{1, n} b_{n, n})^{\star} \\
+ \vdots                             & \ddots &  \vdots                           & \ddots & \vdots                             & \ddots & \vdots \\
+ (a_{n, 1} b_{1, 1})^{\star} & \dots   & (a_{n, 1} b_{1, n})^{\star} & \dots   & (a_{n, n} b_{1, 1})^{\star} & \dots    & (a_{n, n} b_{1, n})^{\star} \\
+ \vdots                             & \ddots & \vdots                            & \ddots & \vdots                             & \ddots  & \vdots \\
+ (a_{n, 1} b_{n, 1})^{\star} & \dots   & (a_{n, 1} b_{n, n})^{\star} & \dots   & (a_{n, n} b_{n, 1})^{\star} & \dots    & (a_{n, n} b_{n, n})^{\star}
+ \end{pmatrix} \\
+ &= 
+ \begin{pmatrix}
+ a_{1, 1}^{\star} b_{1, 1}^{\star} & \dots   & a_{1, 1}^{\star} b_{1, n}^{\star} & \dots   & a_{1, n}^{\star} b_{1, 1}^{\star} & \dots    & a_{1, n}^{\star} b_{1, n}^{\star} \\
+ \vdots                                      & \ddots & \vdots                                      & \ddots &  \vdots                                     & \ddots  & \vdots \\
+ a_{1, 1}^{\star} b_{n, 1}^{\star} & \dots   & a_{1, 1}^{\star} b_{n, n}^{\star} & \dots   & a_{1, n}^{\star} b_{n, 1}^{\star} & \dots    & a_{1, n}^{\star} b_{n, n}^{\star} \\
+ \vdots                                      & \ddots &  \vdots             	 					  & \ddots & \vdots               						  & \ddots & \vdots \\
+ a_{n, 1}^{\star} b_{1, 1}^{\star} & \dots   & a_{n, 1}^{\star} b_{1, n}^{\star} & \dots   & a_{n, n}^{\star} b_{1, 1}^{\star} & \dots    & a_{n, n}^{\star} b_{1, n}^{\star} \\
+ \vdots               						  & \ddots & \vdots               						  & \ddots & \vdots               						  & \ddots  & \vdots \\
+ a_{n, 1}^{\star} b_{n, 1}^{\star} & \dots   & a_{n, 1}^{\star} b_{n, n}^{\star} & \dots   & a_{n, n}^{\star} b_{n, 1}^{\star} & \dots    & a_{n, n}^{\star} b_{n, n}^{\star}
+ \end{pmatrix} \\
+ &= 
+ \begin{pmatrix}
+a_{1, 1}^{\star} & \dots & a_{1, n}^{\star} \\
+\vdots & \ddots & \vdots \\
+a_{n, 1}^{\star} & \dots & a_{n, n}^{\star}
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+b_{1, 1}^{\star} & \dots & b_{1, n}^{\star} \\
+\vdots & \ddots & \vdots \\
+b_{n, 1}^{\star} & \dots & b_{n, n}^{\star}
+\end{pmatrix} \\
+&=
+ \begin{pmatrix}
+a_{1, 1} & \dots & a_{1, n} \\
+\vdots & \ddots & \vdots \\
+a_{n, 1} & \dots & a_{n, n}
+\end{pmatrix}^{\dag}
+\otimes
+\begin{pmatrix}
+b_{1, 1} & \dots & b_{1, n} \\
+\vdots & \ddots & \vdots \\
+b_{n, 1} & \dots & b_{n, n}
+\end{pmatrix}^{\dag} \\
+&= A^{\dag} \otimes B^{\dag}.
 \end{align*}
 
 \end{document}
