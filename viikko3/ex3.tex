@@ -245,6 +245,57 @@ ZXH\ket{0} &= \begin{pmatrix}
 \end{pmatrix} \\
 &= \ket{-}.
 \end{align*}
+
+\section*{edx Problem 7}
+We are given a qubit $\ket{\psi} = \alpha \ket{0} + \beta \ket{1}$ and we know that $|\alpha|^2 = \frac{2}{9}$ so $|\beta|^2 = \frac{7}{9}$. Also we know that
+\[
+H = \frac{1}{\sqrt{2}} \begin{pmatrix}
+1 & 1 \\
+1 & -1
+\end{pmatrix},
+\]
+so 
+\begin{align*}
+H\ket{\psi} &= \frac{1}{\sqrt{2}} \begin{pmatrix}
+1 & 1 \\
+1 & -1
+\end{pmatrix} \begin{pmatrix}
+\alpha \\
+\beta
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}} \begin{pmatrix}
+\alpha + \beta \\
+\alpha - \beta
+\end{pmatrix}
+\end{align*}
+Also we know that $\ket{+} = \frac{1}{\sqrt{2}} (\ket{0} + \ket{1})$. Now the probability of measuring $+$ is 
+\begin{align*}
+\cos^2 \theta &= |\braket{H\psi | +}|^2 \\
+					   &= \Bigg|\frac{1}{\sqrt{2}}(\alpha + \beta)(\frac{1}{\sqrt{2}}) + \frac{1}{\sqrt{2}}(\alpha - \beta)(\frac{1}{\sqrt{2}}) \Bigg|^2 \\
+					   &= \Bigg| \frac{1}{2} (\alpha + \beta) + \frac{1}{2} (\alpha - \beta) \Bigg|^2 \\
+					   &= | \alpha |^2 \\
+					   &= \frac{2}{9}.
+\end{align*}
+
+\section*{edx Problem 8}
+All pairs commute except CNOT and X applied to the target qubit.
+
+\section*{edx Problem 9}
+Apply the 3rd (last) circuit from above.
+
+\section*{edx Problem 10}
+(a) The resulting state ain't entangled.
+(b) First qubit: $b\ket{0} + a\ket{1}$, second cubit: $\ket{0}$.
+
+\section*{edx Problem 11}
+No circuit exists by no cloning theorem.
+
+\section*{edx Problem 12}
+I think in general case the correct alternative is $[0, \frac{\pi}{2}]$, yet unitary matrices preserve angles, so for any unitary $U$ $U\ket{\psi}$ $U\ket{\psi'}$ have the same angle as $\ket{\psi}$ and $\ket{\psi'}$.
+
+\section*{edx Problem 13}
+When Alice's outcome was 0, apply $I$. When Alice's outcome was 1, apply $Z$.
+
 \section*{QCE 5.1}
 Consider the following state vector:
 \[
