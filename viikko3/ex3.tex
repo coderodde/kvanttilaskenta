@@ -167,4 +167,106 @@ U =
 \frac{4i}{5} & \frac{3}{5}
 \end{pmatrix}.
 \]
+
+\section*{edx Problem 4 once again - Thanks, Tomi!}
+$\frac{1}{\sqrt{2}} (\ket{00} + \ket{11})$.
+
+\section*{edx Problem 5}
+$\frac{1}{\sqrt{2}} (\ket{00} - \ket{11})$.
+
+\section*{edx Problem 6}
+True.
+
+\section*{edx Problem 5}
+What is $ZX$ applied to $\ket{0}$?
+We are given Pauli operators
+\[
+Z = \begin{pmatrix}
+1 & 0 \\
+0 & -1 
+\end{pmatrix}, \quad
+X = \begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix},
+\]
+so 
+\begin{align*}
+ZX\ket{0} &= \begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \\
+&= \begin{pmatrix}
+0 & 1 \\
+-1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \\
+&= \begin{pmatrix}
+0 \\
+-1
+\end{pmatrix} \\
+&= -\ket{1}.
+\end{align*}
+
+\section*{edx Problem 6}
+What is $ZX$ applied to $H\ket{0}$?
+
+From the exerices above we have that
+\[
+ZX = \begin{pmatrix}
+0 & 1 \\
+-1 & 0
+\end{pmatrix}.
+\]
+Also $H\ket{0} = \frac{1}{\sqrt{2}} \ket{0} + \frac{1}{\sqrt{2}} \ket{1}$, so
+\begin{align*}
+ZXH\ket{0} &= \begin{pmatrix}
+0 & 1 \\
+-1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}} 
+\end{pmatrix} \\
+&= \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+-\frac{1}{\sqrt{2}}
+\end{pmatrix} \\
+&= \ket{-}.
+\end{align*}
+\section*{QCE 5.1}
+Consider the following state vector:
+\[
+\ket{\psi} = \sqrt{\frac{5}{6}} \ket{0} + \frac{1}{\sqrt{6}} \ket{1}.
+\]
+(A) Is the state normalized?
+As
+\[
+\Bigg( \sqrt{\frac{5}{6}} \Bigg)^2 + \Bigg( \frac{1}{\sqrt{6}} \Bigg)^2 = \frac{5}{6} + \frac{1}{6} = 1, 
+\]
+the state vector is normalized.
+(B) After applying the Z-gate, we obtain
+\begin{align*}
+Z\ket{\psi} &= 
+\begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}
+\begin{pmatrix}
+\sqrt{\frac{5}{6}} \\
+\frac{1}{\sqrt{6}}
+\end{pmatrix} \\
+&= 
+\end{align*}
 \end{document}
