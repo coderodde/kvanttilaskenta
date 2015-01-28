@@ -1,0 +1,170 @@
+\documentclass[10pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[ruled,linesnumbered,noend]{algorithm2e}
+\usepackage{empheq}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{gensymb}
+
+\title{Kvanttilaskenta, kevät 2015 -- Viikko 2}
+\author{Rodion ``rodde'' Efremov}
+
+\begin{document}
+ \maketitle
+
+\section*{edx Problem 1}
+Let 
+\[
+U =
+\begin{pmatrix}
+-2i & 5i \\
+5 & 1 - i 
+\end{pmatrix}.
+\]
+Now
+\[
+U^{\dag} = 
+\begin{pmatrix}
+2i & 5 \\
+-5i & 1 + i
+\end{pmatrix}.
+\]
+
+\section*{edx Problem 2}
+All unitary matrices are self-inverse.
+
+\section*{edx Problem 3}
+We are given a $U$ that maps $\ket{0}$ to $\frac{1}{\sqrt{2}} \ket{0} + \frac{1+i}{2} \ket{1}$ and $\ket{1}$ to $\frac{1 - i}{2} \ket{0} - \frac{1}{\sqrt{2}} \ket{1}$. So we have that
+\begin{align*}
+U\ket{0} &= 
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+a \\
+c
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1 + i}{2}
+\end{pmatrix}.
+\end{align*}
+Also, we have that
+\begin{align*}
+U\ket{1} &= 
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\begin{pmatrix}
+0 \\
+1
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+b \\
+d
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1-i \\
+-\frac{1}{\sqrt{2}}
+\end{pmatrix}.
+\end{align*}
+It follows immediately that
+\[
+U = 
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} & 1 - i \\
+\frac{1 + i}{2} & -\frac{1}{\sqrt{2}}
+\end{pmatrix}.
+\]
+
+\section*{edx Problem 4}
+Suppose we have a one-qubit unitary $U$ that maps $\ket{0}$ to $\frac{-3}{5} \ket{0} + \frac{4i}{5} \ket{1}$ and $\ket{+}$ to $\frac{-3-4i}{5\sqrt{2}} \ket{0} + \frac{3+4i}{5\sqrt{2}} \ket{1}$.
+
+We have that
+\begin{align*}
+U\ket{0} &= 
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\begin{pmatrix}
+1 \\
+0
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+a \\
+c
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+\frac{-3}{5} \\
+\frac{4i}{5}
+\end{pmatrix}.
+\end{align*}
+As $\ket{+} = (\frac{1}{\sqrt{2}} \quad \frac{1}{\sqrt{2}})^T$, we have that
+\begin{align*}
+U\ket{+} &= 
+\begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} (a + b) \\
+\frac{1}{\sqrt{2}} (c + d) \\
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+\frac{1}{\sqrt{2}} (-\frac{3}{5} + b) \\
+\frac{1}{\sqrt{2}} (\frac{4i}{5} + d)
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+\frac{-3-4i}{5\sqrt{2}} \\
+\frac{3+4i}{5\sqrt{2}}
+\end{pmatrix}.
+\end{align*}
+Now for $b$ we have an equality
+\[
+-\frac{3}{5} + b = \frac{-3-4i}{5},
+\]
+which has solution $b = -\frac{4i}{5}$.
+For $d$ we have an equality
+\[
+\frac{4i}{5} + d = \frac{3+4i}{5},
+\]
+which has solution $d = \frac{3}{5}$.
+
+So the matrix in question is
+\[
+U = 
+\begin{pmatrix}
+-\frac{3}{5} & -\frac{4i}{5} \\
+\frac{4i}{5} & \frac{3}{5}
+\end{pmatrix}.
+\]
+\end{document}
