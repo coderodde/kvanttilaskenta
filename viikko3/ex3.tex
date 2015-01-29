@@ -801,4 +801,43 @@ p(1) &= \braket{1|\rho|1} \\
        &= \frac{34}{80} \\
        &= \frac{17}{40}.
 \end{align*}
+
+\section*{QCE 5.8}
+Let 
+\begin{align*}
+\ket{a} &= \sqrt{\frac{2}{5}} \ket{+} - \sqrt{\frac{3}{5}} \ket{-} \\
+           &= \sqrt{\frac{2}{5}} \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) - \sqrt{\frac{3}{5}} \frac{1}{\sqrt{2}} (\ket{0} - \ket{1}) \\
+           &= \frac{1}{\sqrt{5}} ( \ket{0} + \ket{1} ) - \sqrt{\frac{3}{10}} (\ket{0} - \ket{1}) \\
+           &= \Bigg( \frac{1}{\sqrt{5}} - \sqrt{\frac{3}{10}}\Bigg) \ket{0} + \Bigg( \frac{1}{\sqrt{5}} + \sqrt{\frac{3}{10}}\Bigg) \ket{1} \\
+           &= x_a \ket{0} + y_a \ket{1}
+\end{align*}
+with probability $0.6$ and
+\begin{align*}
+\ket{b} &= \sqrt{\frac{5}{8}} \ket{+} + \sqrt{\frac{3}{8}} \ket{-} \\
+           &= \sqrt{\frac{5}{8}} \frac{1}{\sqrt{2}} (\ket{0} + \ket{1}) + \sqrt{\frac{3}{8}} \frac{1}{\sqrt{2}} (\ket{0} - \ket{1}) \\
+           &= \sqrt{\frac{5}{16}} (\ket{0} + \ket{1}) + \sqrt{\frac{3}{16}} (\ket{0} - \ket{1}) \\
+           &= \Bigg( \sqrt{\frac{5}{16}} + \sqrt{\frac{3}{16}} \Bigg) \ket{0} + \Bigg( \sqrt{\frac{5}{16}} - \sqrt{\frac{3}{16}}\Bigg) \ket{1} \\
+           &= x_b \ket{0} + y_b \ket{1}
+\end{align*}
+with probability $0.4$. Now
+\begin{align*}
+\rho_a &= \ket{a} \bra{a} \\
+           &= ( x_a \ket{0} + y_a \ket{1} ) ( x_a \bra{0} + y_a \bra{1} ) \\
+           &= x_a^2 \ket{0} \bra{0} + x_a y_a \ket{0} \bra{1} + y_a x_a \ket{1} \bra{0} + y_a^2 \ket{1} \bra{1},
+\end{align*}
+and 
+\begin{align*}
+\rho_b &= \ket{b} \bra{b} \\
+           &= ( x_b \ket{0} + y_b \ket{1} ) ( x_b \bra{0} + y_b \bra{1} ) \\
+           &= x_b^2 \ket{0} \bra{0} + x_b y_b \ket{0} \bra{1} + y_b x_b \ket{1} \bra{0} + y_b^2 \ket{1} \bra{1},
+\end{align*}
+so
+\begin{align*}
+p(0) &=  \braket{ 0 | \rho | 0} \\
+       &= \braket{ 0 | \frac{3}{5} \rho_a + \frac{2}{5} \rho_b | 0 }\\
+       &= \frac{3}{5} x_a^2 + \frac{2}{5} x_b^2 \\
+       &= \frac{3}{5} \Bigg( \frac{1}{\sqrt{5}} - \sqrt{\frac{3}{10}} \Bigg)^2 + \frac{2}{5} \Bigg( \sqrt{\frac{5}{16}} + \sqrt{\frac{3}{16}} \Bigg)^2 \\
+       &= \frac{3}{5} \Bigg( \frac{1}{5} + \frac{3}{10} - \frac{2}{\sqrt{5}} \sqrt{\frac{3}{10}} \Bigg)^2 + \frac{2}{5} \Bigg( \frac{5}{16} + \frac{3}{16} + 2\sqrt{\frac{15}{256}} \Bigg)^2 \\
+       &\approx 0.387.
+\end{align*}
 \end{document}
