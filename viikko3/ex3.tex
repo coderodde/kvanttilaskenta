@@ -307,7 +307,10 @@ As
 \Bigg( \sqrt{\frac{5}{6}} \Bigg)^2 + \Bigg( \frac{1}{\sqrt{6}} \Bigg)^2 = \frac{5}{6} + \frac{1}{6} = 1, 
 \]
 the state vector is normalized.
-(B) After applying the Z-gate, we obtain
+
+(B) What is the probability that the system is found to be in state $\ket{0}$ if $Z$ is measured? 
+
+After applying the Z-gate, we obtain
 \begin{align*}
 Z\ket{\psi} &= 
 \begin{pmatrix}
@@ -319,5 +322,213 @@ Z\ket{\psi} &=
 \frac{1}{\sqrt{6}}
 \end{pmatrix} \\
 &= 
+\begin{pmatrix}
+\sqrt{\frac{5}{6}} \\
+-\frac{1}{\sqrt{6}}
+\end{pmatrix},
 \end{align*}
+which implies that the probability in question is $\frac{5}{5}$.
+
+Lets do this the adult way:
+As $P_0 = \ket{0}\bra{0}$ and $P_1 = \ket{1} \bra{1}$, we have that
+\[
+P_0 = \begin{pmatrix}
+\braket{0|P_0|0} & \braket{0|P_0|1} \\
+\braket{1|P_0|0} & \braket{1|P_0|1} 
+\end{pmatrix}
+= \begin{pmatrix}
+1 & 0 \\
+0 & 0
+\end{pmatrix}
+\]
+and
+\[
+P_1 = \begin{pmatrix}
+\braket{0|P_1|0} & \braket{0|P_1|1} \\
+\braket{1|P_1|0} & \braket{1|P_1|1} 
+\end{pmatrix}
+= \begin{pmatrix}
+0 & 0 \\
+0 & 1
+\end{pmatrix}
+\]
+Next we need the density operator, which is given by
+\begin{align*}
+\rho &= \ket{\psi} \bra{\psi} \\
+        &= \Bigg( \sqrt{\frac{5}{6}} \ket{0} + \frac{1}{\sqrt{6}} \ket{1} \Bigg) \Bigg( \sqrt{\frac{5}{6}} \bra{0} + \frac{1}{\sqrt{6}} \bra{1} \Bigg) \\
+        &= \frac{5}{6} \ket{0} \bra{0} + \frac{\sqrt{5}}{6} \ket{0} \bra{1} + \frac{\sqrt{5}}{6} \ket{1} \bra{0} + \frac{1}{6} \ket{1} \bra{1},
+\end{align*}
+so the density matrix in the $\{ \ket{0}, \ket{1} \}$ basis is
+\[
+\begin{pmatrix}
+\frac{5}{6} & \frac{\sqrt{5}}{6} \\
+\frac{\sqrt{5}}{6} & \frac{1}{6}
+\end{pmatrix}.
+\]
+Now the probability of finding the system in state $\ket{0}$ is
+\[
+p(0) = Tr(P_0 \rho) = Tr \begin{bmatrix}
+\begin{pmatrix}
+1 & 0 \\
+0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+\frac{5}{6} & \frac{\sqrt{5}}{6} \\
+\frac{\sqrt{5}}{6} & \frac{1}{6}
+\end{pmatrix}
+\end{bmatrix}
+= Tr \begin{pmatrix}
+\frac{5}{6} & \frac{\sqrt{5}}{6} \\
+0 & 0
+\end{pmatrix}
+= \frac{5}{6}.
+\]
+
+(C) Write down the density operator. See above.
+
+(D) Find the density matrix in the $\{ \ket{0}, \ket{1} \}$ basis, and show that $Tr(\rho) = 1$. See above.
+
+\section*{QCE 5.2}
+\[
+\ket{\psi} = \begin{pmatrix}
+\cos \theta \\
+i \sin \theta
+\end{pmatrix},
+\]
+so 
+\[
+|\braket{\psi|\psi}| = |(\cos \theta + i \sin \theta)( \cos \theta - i \sin \theta )| = |\cos^2 \theta + \sin^2 \theta| = |1| = 1
+\]
+and the state is normalized.
+Now 
+\begin{align*}
+\rho &= \ket{\psi} \bra{\psi} \\
+        &= ( \cos \theta \ket{0} + i \sin \theta \ket{1} ) ( \cos \theta \bra{0} + i \sin \theta \bra{1} ) \\
+        &= \cos^2 \theta \ket{0} \bra{0} + i \sin \theta \cos \theta \ket{0} \bra{1} + i \sin \theta \cos \theta \ket{1} \bra{0} - \sin^2 \theta \ket{1} \bra{1} \\
+        &= \begin{pmatrix}
+        \cos^2 \theta & i \sin \theta \cos \theta \\
+        i \sin \theta \cos \theta & \sin^2 \theta
+        \end{pmatrix}.
+\end{align*}
+Obviously, $Tr(\rho) = \cos^2 \theta + \sin^2 \theta = 1$. 
+Also 
+\begin{align*}
+\rho^{\dag} &= \begin{pmatrix}
+        \cos^2 \theta & i \sin \theta \cos \theta \\
+        i \sin \theta \cos \theta & \sin^2 \theta
+        \end{pmatrix}^{\dag} \\
+        &= 
+        \begin{pmatrix}
+        \cos^2 \theta & i \sin \theta \cos \theta \\
+        i \sin \theta \cos \theta & \sin^2 \theta
+        \end{pmatrix}^{\star} \\
+        &= 
+        \begin{pmatrix}
+        \cos^2 \theta & -i \sin \theta \cos \theta \\
+        -i \sin \theta \cos \theta & \sin^2 \theta
+        \end{pmatrix} \\
+        &\neq \rho,
+\end{align*}
+so the operator is not Hermitian, and, thus, not a density operator.
+
+\section*{QCE 5.3}
+Let
+\[
+\ket{\psi} = \sqrt{\frac{3}{7}} \ket{0} + \frac{2}{\sqrt{7}} \ket{1}.
+\]
+(A) The density matrix in the $\{ \ket{0}, \ket{1} \}$ basis is
+\begin{align*}
+\rho &= \ket{\psi} \bra{\psi} \\
+        &= (\sqrt{\frac{3}{7}} \ket{0} + \frac{2}{\sqrt{7}} \ket{1})( \sqrt{\frac{3}{7}} \bra{0} + \frac{2}{\sqrt{7}} \bra{1}) \\
+        &= \frac{3}{7} \ket{0}\bra{0} + \frac{2\sqrt{3}}{7} \ket{0}\bra{1} + \frac{2\sqrt{3}}{7} \ket{1}\bra{0} + \frac{4}{7} \ket{1}\bra{1} \\
+        &=  \begin{pmatrix}
+        \frac{3}{7} & \frac{2\sqrt{3}}{7} \\
+        \frac{2\sqrt{3}}{7} & \frac{4}{7}
+        \end{pmatrix}.
+\end{align*}
+Next we need $\rho^2$ which is given by
+\begin{align*}
+& \begin{pmatrix}
+     \frac{3}{7} & \frac{2\sqrt{3}}{7} \\
+     \frac{2\sqrt{3}}{7} & \frac{4}{7}
+\end{pmatrix}
+\begin{pmatrix}
+     \frac{3}{7} & \frac{2\sqrt{3}}{7} \\
+     \frac{2\sqrt{3}}{7} & \frac{4}{7}
+\end{pmatrix} = \\
+& \frac{1}{49} \begin{pmatrix}
+3 & 2\sqrt{3} \\
+2\sqrt{3} & 4
+\end{pmatrix}
+\begin{pmatrix}
+3 & 2\sqrt{3} \\
+2\sqrt{3} & 4
+\end{pmatrix} = \\
+& \frac{1}{49}
+\begin{pmatrix}
+9 + 12 & 6\sqrt{3} + 8\sqrt{3} \\
+6\sqrt{3} + 8\sqrt{3} & 12 + 16
+\end{pmatrix} = \\
+& \frac{1}{49}
+\begin{pmatrix}
+21 & 14\sqrt{3} \\
+14 \sqrt{3}  & 28
+\end{pmatrix}.
+\end{align*}
+As $Tr(\rho^2) = 1$, this is a pure state.
+
+(C) Write down the density matrix in the $\{ \ket{+}, \ket{-} \}$ basis, show that $Tr(\rho) = 1$ still holds, and determine if you still obtain the same result as in part (b).
+
+Here we have
+\begin{align*}
+\ket{\psi} &= \sqrt{\frac{3}{7}} \ket{0} + \frac{2}{\sqrt{7}} \ket{1} \\
+                &= \sqrt{\frac{3}{7}} \frac{1}{\sqrt{2}} (\ket{+} + \ket{-}) + \frac{2}{\sqrt{7}} \frac{1}{\sqrt{2}} (\ket{+} - \ket{-}) \\
+                &= \sqrt{\frac{3}{14}} (\ket{+} + \ket{-}) + \sqrt{\frac{4}{14}}(\ket{+} - \ket{-}) \\
+                &= \Bigg( \sqrt{\frac{3}{14}} + \sqrt{\frac{4}{14}} \Bigg) \ket{+} + \Bigg( \sqrt{\frac{3}{14}}- \sqrt{\frac{4}{14}} \Bigg) \ket{-} 
+\end{align*}
+Now
+\begin{align*}
+\rho &= \ket{\psi} \bra{\psi} \\
+        &= \Bigg( \Bigg( \sqrt{\frac{3}{14}} + \sqrt{\frac{4}{14}} \Bigg) \ket{+} + \Bigg( \sqrt{\frac{3}{14}}- \sqrt{\frac{4}{14}} \Bigg) \ket{-} \Bigg) \Bigg( \Bigg( \sqrt{\frac{3}{14}} + \sqrt{\frac{4}{14}} \Bigg) \bra{+} + \Bigg( \sqrt{\frac{3}{14}}- \sqrt{\frac{4}{14}} \Bigg) \bra{-} \Bigg) \\
+        &= 
+        \Bigg( \sqrt{\frac{3}{14}} + \sqrt{\frac{4}{14}} \Bigg)^2 \ket{+} \bra{+} \\
+        &+ \Bigg( \sqrt{\frac{3}{14}} + \sqrt{\frac{4}{14}} \Bigg) \Bigg( \sqrt{\frac{3}{14}}- \sqrt{\frac{4}{14}} \Bigg) \ket{+} \bra{-} \\
+        &+ \Bigg( \sqrt{\frac{3}{14}} + \sqrt{\frac{4}{14}} \Bigg) \Bigg( \sqrt{\frac{3}{14}}- \sqrt{\frac{4}{14}} \Bigg) \ket{-} \bra{+} \\
+        &+ \Bigg( \sqrt{\frac{3}{14}} - \sqrt{\frac{4}{14}} \Bigg)^2 \ket{-} \bra{-} \\
+        &= 
+        \Bigg( \sqrt{\frac{3}{14}} + \sqrt{\frac{4}{14}} \Bigg)^2 \ket{+} \bra{+} \\
+        &+ \Bigg( \frac{3}{14} - \frac{4}{14} \Bigg) \ket{+} \bra{-} \\
+        &+ \Bigg( \frac{3}{14} - \frac{4}{14} \Bigg) \ket{-} \bra{+} \\
+        &+ \Bigg( \sqrt{\frac{3}{14}} - \sqrt{\frac{4}{14}} \Bigg)^2 \ket{-} \bra{-} \\
+        &= \Bigg( \sqrt{\frac{3}{14}} + \sqrt{\frac{4}{14}} \Bigg)^2 \ket{+} \bra{+} 
+        -\frac{1}{14} \ket{+} \bra{-} 
+        -\frac{1}{14} \ket{-} \bra{+} 
+        + \Bigg( \sqrt{\frac{3}{14}} - \sqrt{\frac{4}{14}} \Bigg)^2 \ket{-} \bra{-} \\
+        &= \begin{pmatrix}
+        \Bigg( \sqrt{\frac{3}{14}} + \sqrt{\frac{4}{14}} \Bigg)^2 & -\frac{1}{14} \\
+        -\frac{1}{14} & \Bigg( \sqrt{\frac{3}{14}} - \sqrt{\frac{4}{14}} \Bigg)^2
+        \end{pmatrix}.
+\end{align*}
+Now
+\begin{align*}
+Tr(\rho) &= \Bigg( \sqrt{\frac{3}{14}} + \sqrt{\frac{4}{14}} \Bigg)^2 + \Bigg( \sqrt{\frac{3}{14}} - \sqrt{\frac{4}{14}} \Bigg)^2 \\
+             &= \frac{3}{14} + \frac{4}{14} + 2\frac{\sqrt{12}}{14} + \frac{3}{14} + \frac{4}{14} -2 \frac{\sqrt{12}}{14} \\
+             &= 1.
+\end{align*}
+Also
+\begin{align*}
+\rho^2 &= \begin{pmatrix}
+        \Bigg( \sqrt{\frac{3}{14}} + \sqrt{\frac{4}{14}} \Bigg)^2 & -\frac{1}{14} \\
+        -\frac{1}{14} & \Bigg( \sqrt{\frac{3}{14}} - \sqrt{\frac{4}{14}} \Bigg)^2
+        \end{pmatrix}
+        \begin{pmatrix}
+        \Bigg( \sqrt{\frac{3}{14}} + \sqrt{\frac{4}{14}} \Bigg)^2 & -\frac{1}{14} \\
+        -\frac{1}{14} & \Bigg( \sqrt{\frac{3}{14}} - \sqrt{\frac{4}{14}} \Bigg)^2
+        \end{pmatrix} \\
+        &= \begin{pmatrix}
+        \Bigg( \sqrt{\frac{3}{14}} + \sqrt{\frac{4}{14}} \Bigg)^4 + \frac{1}{196} & \dots \\
+        \dots & \Bigg( \sqrt{\frac{3}{14}} - \sqrt{\frac{4}{14}} \Bigg)^4 + \frac{1}{196}
+        \end{pmatrix}.
+\end{align*}
+According to Wolframalpha, $Tr(\rho^2) = 1$, so this state is pure.
 \end{document}
