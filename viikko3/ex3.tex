@@ -840,4 +840,212 @@ p(0) &=  \braket{ 0 | \rho | 0} \\
        &= \frac{3}{5} \Bigg( \frac{1}{5} + \frac{3}{10} - \frac{2}{\sqrt{5}} \sqrt{\frac{3}{10}} \Bigg)^2 + \frac{2}{5} \Bigg( \frac{5}{16} + \frac{3}{16} + 2\sqrt{\frac{15}{256}} \Bigg)^2 \\
        &\approx 0.387.
 \end{align*}
+
+\section*{QCE 5.9}
+\color{blue} 
+Suppose that Alice and Bob share the entangled state
+\[
+\ket{\psi} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}.
+\]
+(A) Write down the density operator for this state.
+(B) Compute the density matrix. Verify that $Tr(\rho) = 1$, and determine if this is a pure state.
+(C) Find the density matrix that represents the reduced density operator as seen by Alice.
+(D) Show that the reduced density operator as seen by Alice is a completely midex state.
+\color{black}
+
+Let 
+\[
+\ket{\psi} = \frac{\ket{00} + \ket{11}}{\sqrt{2}},
+\]
+so 
+\begin{align*}
+\rho &= \ket{\psi} \bra{\psi} \\
+        & = \Bigg( \frac{\ket{00} + \ket{11}}{\sqrt{2}} \Bigg)  \Bigg( \frac{\bra{00} + \bra{11}}{\sqrt{2}} \Bigg) \\
+        &= \frac{1}{2} \Bigg(  \ket{00} \bra{00} + \ket{00} \bra{11} + \ket{11} \bra{00} + \ket{11} \bra{11} \Bigg) \\
+        &= \frac{1}{2}
+        \begin{pmatrix}
+		1 & 1 \\
+		1 & 1        
+        \end{pmatrix}.
+\end{align*}
+Now $Tr(\rho) = 1$ and $\rho^2 = \rho$ so the state is pure.
+
+\begin{align*}
+\rho_a &= \bra{0}(\ket{\psi} \bra{\psi})\ket{0} + \bra{1}(\ket{\psi} \bra{\psi})\ket{1}  
+\end{align*}
+Now
+\begin{align*}
+\bra{0}(\ket{\psi} \bra{\psi}) \ket{0} &= \bra{0} \Bigg( \frac{ \ket{0}\ket{0} \bra{0} \bra{0} +
+		\ket{0}\ket{0} \bra{1} \bra{1} +
+		\ket{1}\ket{1} \bra{0} \bra{0} +
+		\ket{1}\ket{1} \bra{1} \bra{1}}{2} \Bigg) \ket{0} \\
+		&= \frac{\ket{0} \bra{0}}{2}.
+\end{align*}
+Also, it is easy to see that
+\begin{align*}
+\bra{1}(\ket{\psi} \bra{\psi}) \ket{1} = \frac{\ket{1}\bra{1}}{2}, 
+\end{align*}
+so the density operator for Alice is
+\begin{align*}
+\rho_a &= \frac{\ket{0}\bra{0} + \ket{1}\bra{1}}{2} \\
+           &= \frac{1}{2}
+           \begin{pmatrix}
+		   1 & 0 \\
+		   0 & 1           
+           \end{pmatrix} \\
+           &= \frac{1}{2} I,
+\end{align*}
+so
+\begin{align*}
+Tr(\rho_a^2) &= Tr(\rho_a^2) \\
+                     &= Tr(\frac{1}{4} I^2) \\
+                     &= Tr(\frac{1}{4} I) \\
+                     &= \frac{1}{2}.
+\end{align*}
+
+\section*{QCE 5.10}
+Let
+\[
+\rho = \begin{pmatrix}
+\frac{2}{5} & \frac{-i}{8} \\
+\frac{i}{8} & \frac{3}{5}
+\end{pmatrix}.
+\]
+Now as
+\begin{align*}
+\rho^{\dag} &=
+    \begin{pmatrix}
+        \frac{2}{5} & \frac{i}{8} \\
+        \frac{-i}{8} & \frac{3}{5}
+    \end{pmatrix}^T \\
+    &= \begin{pmatrix}
+        \frac{2}{5} & \frac{-i}{8} \\
+        \frac{i}{8} & \frac{3}{5}
+    \end{pmatrix} \\
+    &= \rho,
+\end{align*}
+so the matrix is Hermitian.
+
+In order to verify that given values are eigenvalues, we need to verify that $\det |\rho - \lambda I| = 0$. Now
+\begin{align*}
+\det |\rho - \lambda_1 I| &= \det 
+\begin{vmatrix}
+\begin{pmatrix}
+\frac{2}{5} & \frac{-i}{8} \\
+\frac{i}{8}  & \frac{3}{5}
+\end{pmatrix}
+- \lambda_1 
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}
+\end{vmatrix} \\
+   &= \det
+   \begin{vmatrix}
+   \begin{pmatrix}
+       \frac{2}{5} & \frac{-i}{8} \\
+       \frac{i}{8}  & \frac{3}{5}
+   \end{pmatrix}
+   -
+   \begin{pmatrix}
+   \frac{20 + \sqrt{41}}{40} & 0 \\
+   0 & \frac{20 + \sqrt{41}}{40} 
+   \end{pmatrix}
+   \end{vmatrix} \\
+   &= \det
+   \begin{vmatrix}
+   \frac{16}{40} - \frac{20 + \sqrt{41}}{40} & -\frac{i}{8} \\
+   \frac{i}{8}  &  \frac{24}{40} - \frac{20 + \sqrt{41}}{40}
+   \end{vmatrix} \\
+   &= \det \begin{vmatrix}
+   -\frac{4}{40} - \frac{\sqrt{41}}{40} & -\frac{5i}{40} \\
+   \frac{5i}{40}   & \frac{4}{40} - \frac{\sqrt{41}}{40}
+   \end{vmatrix} \\
+   &= \Bigg( -\frac{4}{40} - \frac{\sqrt{41}}{40} \Bigg) \Bigg( \frac{4}{40} - \frac{\sqrt{41}}{40} \Bigg) - \Bigg( -\frac{25i^2}{40^2} \Bigg) \\
+   &= -\frac{16}{40^2} + \frac{4\sqrt{41}}{40^2} - \frac{4\sqrt{41}}{40^2} + \frac{41}{40^2} - \Bigg( \frac{25}{40^2}\Bigg) \\
+   &= -\frac{16}{40^2} + \frac{41}{40^2} - \frac{25}{40^2} \\
+   &= 0,
+\end{align*}
+so $\lambda_1$ is an eigenvalue of $\rho$. Next let us check $\lambda_2$:
+\begin{align*}
+\det |\rho - \lambda_2 I| &= \det
+   \begin{vmatrix}
+   \frac{16}{40} - \frac{20 - \sqrt{41}}{40} & -\frac{i}{8} \\
+   \frac{i}{8}  &  \frac{24}{40} - \frac{20 - \sqrt{41}}{40}
+   \end{vmatrix} \\
+   &= \det
+   \begin{vmatrix}
+   -\frac{4}{40} + \frac{\sqrt{41}}{40} & -\frac{5i}{40} \\
+   \frac{5i}{40}  &  \frac{4}{40} + \frac{\sqrt{41}}{40} 
+   \end{vmatrix} \\
+   &= \Bigg( -\frac{4}{40} + \frac{\sqrt{41}}{40} \Bigg) + \Bigg( \frac{4}{40} + \frac{\sqrt{41}}{40} \Bigg) - \Bigg( \frac{-25i^2}{40^2} \Bigg) \\
+   &= -\frac{16}{40^2} + \frac{41}{40^2} - \frac{25}{40^2} \\
+   &= 0,
+\end{align*}
+so $\lambda_2$ is an eigenvalue as well. As $\rho$ is Hermitian, $Tr(\rho) = 1$ and has nonnegative eigenvalues, it is a valid density matrix.
+
+Next, let us kick with the Bloch vector:
+\begin{align*}
+S_x &= Tr(X\rho) \\
+      &= Tr \begin{bmatrix}
+      \begin{pmatrix}
+      0 & 1 \\
+      1 & 0
+      \end{pmatrix}
+      \begin{pmatrix}
+          \frac{2}{5} & \frac{-i}{8} \\
+          \frac{i}{8} & \frac{3}{5}
+      \end{pmatrix}
+      \end{bmatrix} \\
+      &= Tr \begin{bmatrix}
+      \frac{i}{8}  & \frac{3}{5} \\
+      \frac{2}{5} & -\frac{i}{8}
+      \end{bmatrix} \\
+      &= 0,
+\end{align*}
+\begin{align*}
+S_y &= Tr(Y\rho) \\
+      &= Tr \begin{bmatrix}
+      \begin{pmatrix}
+      0 & -i \\
+      i & 0
+      \end{pmatrix}
+      \begin{pmatrix}
+          \frac{2}{5} & \frac{-i}{8} \\
+          \frac{i}{8} & \frac{3}{5}
+      \end{pmatrix}
+      \end{bmatrix} \\
+      &= Tr \begin{bmatrix}
+      \frac{1}{8}  & -\frac{3i}{5} \\
+      \frac{2i}{5} & \frac{1}{8}
+      \end{bmatrix} \\
+      &= \frac{1}{4},
+\end{align*}
+\begin{align*}
+S_z &= Tr(Z\rho) \\
+      &= Tr \begin{bmatrix}
+      \begin{pmatrix}
+      1 & 0 \\
+      0 & -1
+      \end{pmatrix}
+      \begin{pmatrix}
+          \frac{2}{5} & \frac{-i}{8} \\
+          \frac{i}{8} & \frac{3}{5}
+      \end{pmatrix}
+      \end{bmatrix} \\
+      &= Tr \begin{bmatrix}
+      \frac{2}{5} & -\frac{i}{8} \\
+	  -\frac{i}{8} & -\frac{3}{5}
+      \end{bmatrix} \\
+      &= -\frac{1}{5},
+\end{align*}
+so the Bloch vector $\vec{S} = \frac{1}{4} \hat{y} - \frac{1}{5} \hat{z}$ and
+\begin{align*}
+|\vec{S}| &= \sqrt{\Bigg( \frac{1}{4} \Bigg)^2 + \Bigg( \frac{1}{5} \Bigg)^2} \\
+              &= \sqrt{\frac{1}{16} + \frac{1}{25}} \\
+              &= \sqrt{\frac{41}{400}} \\
+              &= \frac{\sqrt{41}}{20} \\
+              &\approx 0.32 < 1,
+\end{align*}
+so the state is mixed.
 \end{document}
