@@ -1,0 +1,77 @@
+\documentclass[10pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[ruled,linesnumbered,noend]{algorithm2e}
+\usepackage{empheq}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{gensymb}
+
+\title{Kvanttilaskenta, kevät 2015 -- Viikko 4}
+\author{Rodion ``rodde'' Efremov}
+
+\begin{document}
+ \maketitle
+
+\section*{edx Problem 1}
+False. By definition of reversibility we should have $x$ at the output of $R_f$.
+
+\section*{edx Problem 2}
+False. The quantum circuit should modify each $\alpha_x$.
+
+\section*{edx Problem 3}
+True. Straight from the slides.
+
+\section*{edx Problem 4}
+\begin{align*}
+H^{\otimes 2} \frac{1}{\sqrt{2}} \ket{00} &= \frac{1}{\sqrt{2}} \ket{++} \\
+                                        						&= \frac{1}{\sqrt{2}} \Bigg( \frac{1}{\sqrt{2}} \ket{0} + \frac{1}{\sqrt{2}} \ket{1} \Bigg)\Bigg( \frac{1}{\sqrt{2}} \ket{0} + \frac{1}{\sqrt{2}} \ket{1} \Bigg) \\
+                                        						&= \frac{1}{2\sqrt{2}} \Bigg( \ket{00} + \ket{01} + \ket{10} + \ket{11} \Bigg).
+\end{align*}
+Also
+\begin{align*}
+H^{\otimes 2} \frac{1}{\sqrt{2}} \ket{11} &= \frac{1}{\sqrt{2}} \ket{--} \\
+                                        						&= \frac{1}{\sqrt{2}} \Bigg( \frac{1}{\sqrt{2}} \ket{0} - \frac{1}{\sqrt{2}} \ket{1} \Bigg)\Bigg( \frac{1}{\sqrt{2}} \ket{0} - \frac{1}{\sqrt{2}} \ket{1} \Bigg) \\
+                                        						&= \frac{1}{2\sqrt{2}} \Bigg( \ket{00} - \ket{01} - \ket{10} + \ket{11} \Bigg),
+\end{align*}
+so
+\begin{align*}
+H^{\otimes 2}\psi &= H^{\otimes 2}\Bigg( \frac{1}{\sqrt{2}} \ket{00} + \frac{1}{\sqrt{2}} \ket{11} \Bigg) \\
+ 							  &= \frac{1}{2\sqrt{2}} \Bigg( 2\ket{00}  + 2\ket{11} \Bigg) \\
+ 							  &= \frac{1}{\sqrt{2}} \Bigg( \ket{00}  + \ket{11} \Bigg) \\
+ 							  &= \psi.
+\end{align*}
+
+\section*{edx Problem 5}
+Let
+\[
+\ket{\psi} = \frac{1}{\sqrt{2}} (\ket{01} + \ket{10}).
+\]
+\begin{align*}
+H^{\otimes 2} \frac{1}{\sqrt{2}} \ket{01} &= \frac{1}{\sqrt{2}} \ket{+-} \\
+                                        						&= \frac{1}{\sqrt{2}} \Bigg( \frac{1}{\sqrt{2}} \ket{0} + \frac{1}{\sqrt{2}} \ket{1} \Bigg)\Bigg( \frac{1}{\sqrt{2}} \ket{0} - \frac{1}{\sqrt{2}} \ket{1} \Bigg) \\
+                                        						&= \frac{1}{2\sqrt{2}} \Bigg( \ket{00} - \ket{01} + \ket{10} - \ket{11} \Bigg).
+\end{align*}
+\begin{align*}
+H^{\otimes 2} \frac{1}{\sqrt{2}} \ket{10} &= \frac{1}{\sqrt{2}} \ket{-+} \\
+                                        						&= \frac{1}{\sqrt{2}} \Bigg( \frac{1}{\sqrt{2}} \ket{0} - \frac{1}{\sqrt{2}} \ket{1} \Bigg)\Bigg( \frac{1}{\sqrt{2}} \ket{0} + \frac{1}{\sqrt{2}} \ket{1} \Bigg) \\
+                                        						&= \frac{1}{2\sqrt{2}} \Bigg( \ket{00} + \ket{01} - \ket{10} - \ket{11} \Bigg).
+\end{align*}
+Now we see that $H^{\otimes 2} \ket{\psi}$ is
+\begin{align*}
+\frac{1}{2\sqrt{2}} \Bigg( \ket{00} - \ket{01} + \ket{10} - \ket{11} \Bigg) + \frac{1}{2\sqrt{2}} \Bigg( \ket{00} + \ket{01} - \ket{10} - \ket{11} \Bigg) &= \frac{1}{2\sqrt{2}} (2\ket{00} - 2\ket{11}) \\
+     &= \frac{1}{\sqrt{2}} (\ket{00} - \ket{11}).
+\end{align*}
+
+\section*{edx Problem 6}
+Yes. Both may yield $\ket{00}$ with probability $\frac{1}{2}$ and $\ket{11}$ with probability $\frac{1}{2}$.
+
+\end{document}
