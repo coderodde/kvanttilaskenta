@@ -74,4 +74,68 @@ Now we see that $H^{\otimes 2} \ket{\psi}$ is
 \section*{edx Problem 6}
 Yes. Both may yield $\ket{00}$ with probability $\frac{1}{2}$ and $\ket{11}$ with probability $\frac{1}{2}$.
 
+\section*{edx Problem 7} 
+Apply circuit A and then D.
+
+\section*{edx Problem 8}
+\[
+A = \begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 
+\end{pmatrix}.
+\]
+
+\section*{edx Problem 9}
+Suppose
+\[
+H^{\otimes 3} \ket{\psi} = \frac{1}{\sqrt{2}} (\ket{000} + \ket{111}).
+\]
+Since $H^{\otimes 3}$ is reversible, if we apply it again to $H^{\otimes 3} \ket{\psi}$, we will obtain $\ket{\psi}$. Let us calculate that ket by ket:
+\begin{align*}
+H^{\otimes 3}\frac{1}{\sqrt{2}} \ket{000} &= \frac{1}{\sqrt{2}} \ket{+++} \\
+		&= \frac{1}{4} \Bigg( \ket{0} + \ket{1} \Bigg)^3 \\
+		&= \frac{1}{4} \Bigg( \ket{0} + \ket{1} \Bigg) \Bigg( \ket{00} + \ket{01} + \ket{10} + \ket{11} \Bigg) \\
+		&= \frac{1}{4} \Bigg( \ket{000} + \ket{001} + \ket{010} + \ket{011} + \ket{100} + \ket{101} + \ket{110} + \ket{111} \Bigg).
+\end{align*}
+\begin{align*}
+H^{\otimes 3}\frac{1}{\sqrt{2}} \ket{111} &= \frac{1}{\sqrt{2}} \ket{---} \\
+		&= \frac{1}{4} \Bigg( \ket{0} - \ket{1} \Bigg)^3 \\
+		&= \frac{1}{4} \Bigg( \ket{0} - \ket{1} \Bigg) \Bigg( \ket{00} - \ket{01} - \ket{10} + \ket{11} \Bigg) \\
+		&= \frac{1}{4} \Bigg( \ket{000} - \ket{001} - \ket{010} + \ket{011} - \ket{100} + \ket{101} + \ket{110} - \ket{111} \Bigg).
+\end{align*}
+Now
+\begin{align*}
+\ket{\psi} &= H^{\otimes 3} H^{\otimes 3}  \ket{\psi} \\
+                &= H^{\otimes 3} \frac{1}{\sqrt{2}} \ket{000} + H^{\otimes 3} \frac{1}{\sqrt{2}} \ket{11} \\
+                &= \frac{1}{4} (2\ket{000} + 2\ket{011} + 2\ket{101} + 2\ket{110}) \\
+                &= \frac{1}{2} (\ket{000} + \ket{011} + \ket{101} + \ket{110}).
+\end{align*}
+
+\section*{edx Problem 10}
+(a)
+\[
+\frac{1}{2^{n - 1}}.
+\]
+(b) We see a uniformly random string $y \in \{ 0, 1 \}^n$.
+
+\section*{edx Problem 11}
+\[
+\frac{1}{\sqrt{2^n}} \sum_{x \in \{ 0, 1 \}^n} (-1)^{x \cdot f(x)} \ket{x} \ket{f(x)}.
+\]
+
+\section*{edx Problem 12}
+\[
+\frac{1}{\sqrt{2^n}} \sum_{x} \ket{x} \ket{0101}. 
+\]
+
+\section*{edx Problem 13}
+1111.
+
+\section*{edx Problem 14}
+Suppose Alice starts with two qubits in the Bell state $\frac{1}{\sqrt{2}} \ket{00} + \frac{1}{\sqrt{2}} \ket{11}$ and teleports these qubits to Bob by applying the quantum teleportation protocol to each qubit separately.
+
+As we are speaking about teleportation, Bob sees the same state and receives exactly 2 bits of information as there is only 4 Bell states.
+
 \end{document}
