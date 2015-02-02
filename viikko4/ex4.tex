@@ -1039,4 +1039,155 @@ Now
         &= \frac{3}{8} \Bigg( \ket{\beta_{00}} \bra{\beta_{00}} \Bigg) + \frac{5}{8} \Bigg( \ket{\beta_{10}} \bra{\beta_{10}} \Bigg).
 \end{align*}
 Since $c_{00} = \frac{3}{8} \leq \frac{1}{2}$, this state is separable.
+
+\section*{QCE 7.13}
+Verify that 
+\[
+\ket{\psi} = \Bigg( \frac{\ket{0} - \ket{1}}{\sqrt{2}}\Bigg) \otimes \Bigg( \frac{\ket{0} - \ket{1}}{\sqrt{2}}\Bigg) 
+\]
+is a product state using (7.36).
+
+A product state is also called separable. Now 
+\begin{align*}
+\ket{\psi} &= \Bigg( \frac{\ket{0} - \ket{1}}{\sqrt{2}}\Bigg) \otimes \Bigg( \frac{\ket{0} - \ket{1}}{\sqrt{2}}\Bigg) \\
+                &= \frac{1}{2} (\ket{00} - \ket{01} - \ket{10} + \ket{11}).
+\end{align*}
+Now
+\begin{align*}
+\rho &= \ket{\psi} \bra{\psi} \\
+        &= \frac{1}{4}  (\ket{00} - \ket{01} - \ket{10} + \ket{11})  (\bra{00} - \bra{01} - \bra{10} + \bra{11}) \\
+        &= \frac{1}{4} \Bigg( \ket{00} \bra{00} - \ket{00} \bra{01} -\ket{00} \bra{10} + \ket{00} \bra{11} \\
+        &- \ket{01} \bra{00} + \ket{01} \bra{01} + \ket{01} \bra{10} - \ket{01} \bra{11} \\
+        &- \ket{10} \bra{00} + \ket{10} \bra{01} + \ket{10} \bra{10} - \ket{10} \bra{11} \\
+        &+ \ket{11} \bra{00} - \ket{11} \bra{01} - \ket{11} \bra{10} + \ket{11} \bra{11} \Bigg) \\
+        &=
+        \frac{1}{4} 
+        \begin{pmatrix}
+        1 & -1 & -1 & 1 \\
+        -1 & 1 & 1 & -1 \\
+        -1 & 1 & 1 & -1 \\
+        1 & -1 & -1 & 1
+        \end{pmatrix}.
+\end{align*}
+The first term is
+\begin{align*}
+c_{11} &= Tr(\rho X \otimes X) \\
+          &= \frac{1}{4} Tr
+        \begin{pmatrix}
+        1 & -1 & -1 & 1 \\
+        -1 & 1 & 1 & -1 \\
+        -1 & 1 & 1 & -1 \\
+        1 & -1 & -1 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 0 \\
+        1 & 0 & 0 & 0 \\
+        \end{pmatrix} \\
+        &= 
+        \frac{1}{4} Tr
+        \begin{pmatrix}
+        1 & -1 & -1 & 1 \\
+        -1 & 1 & 1 & -1 \\
+        -1 & 1 & 1 & -1 \\
+        1 & -1 & -1 & 1
+        \end{pmatrix} \\
+        &= 1.
+\end{align*}
+\begin{align*}
+c_{22} &= Tr(\rho Y \otimes Y) \\
+          &= \frac{1}{4} Tr
+        \begin{pmatrix}
+        1 & -1 & -1 & 1 \\
+        -1 & 1 & 1 & -1 \\
+        -1 & 1 & 1 & -1 \\
+        1 & -1 & -1 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+        0   & 0 & 0 & -1 \\
+        0   & 0 & 1 & 0 \\
+        0   & 1 & 0 & 0 \\
+        -1 & 0 & 0 & 0 \\
+        \end{pmatrix} \\
+        &= \frac{1}{4} Tr
+        \begin{pmatrix}
+        -1 & -1 & -1 & -1 \\
+        1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 1 \\
+        -1 & -1 & -1 & -1
+        \end{pmatrix} \\
+        &= 0,
+\end{align*}
+\begin{align*}
+c_{33} &= Tr(\rho Z \otimes Z) \\
+          &= \frac{1}{4} Tr
+        \begin{pmatrix}
+        1 & -1 & -1 & 1 \\
+        -1 & 1 & 1 & -1 \\
+        -1 & 1 & 1 & -1 \\
+        1 & -1 & -1 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+        1 & 0   & 0   & 0 \\
+        0 & -1 & 0   & 0 \\
+        0 & 0   & -1 & 0 \\
+        0 & 0   & 0   & 1 \\
+        \end{pmatrix} \\
+        &= \frac{1}{4} Tr
+        \begin{pmatrix}
+        1 & 1 & 1 & 1 \\
+        -1 & -1 & -1 & -1 \\
+        -1 & -1 & -1 & -1 \\
+        1 & 1 & 1 & 1 
+        \end{pmatrix} \\
+        &= 0.
+\end{align*}
+As $|c_{11}| + |c_{22}| + |c_{33}| = 1 \leq 1$, it is a product state in question.
+
+\section*{QCE 7.14}
+Verify that the state
+\[
+\ket{\psi} = \frac{1}{\sqrt{2}} \ket{\beta_{00}} - \frac{1}{\sqrt{2}} \ket{\beta_{01}}
+\]
+is entangled by calculating the Schmidt number.
+
+First, let us rewrite the state:
+\begin{align*}
+\ket{\psi} &= \frac{1}{\sqrt{2}} \ket{\beta_{00}} - \frac{1}{\sqrt{2}} \ket{\beta_{01}} \\
+                &= \frac{1}{2} (\ket{00} + \ket{11}) - \frac{1}{2} (\ket{01} + \ket{10}) \\
+                &= \frac{1}{2} (\ket{00} - \ket{01} - \ket{10} + \ket{11}).
+\end{align*}
+Now
+\begin{align*}
+\rho &= \ket{\psi} \bra{\psi} \\
+        &= \frac{1}{4} \Bigg( \ket{00} - \ket{01} - \ket{10} + \ket{11} \Bigg) \Bigg( \bra{00} - \bra{01} - \bra{10} + \bra{11} \Bigg) \\
+        &= \frac{1}{4} \Bigg( \ket{00} \bra{00} -  \ket{00} \bra{01} - \ket{00} \bra{10} +  \ket{00} \bra{11} \\
+        &-  \ket{01} \bra{00} +  \ket{01} \bra{01} +  \ket{01} \bra{10} - \ket{01} \bra{11} \\ 
+        &-  \ket{10} \bra{00} +  \ket{10} \bra{01} +  \ket{10} \bra{10} -  \ket{10} \bra{11} \\
+        &+  \ket{11} \bra{00} -  \ket{11} \bra{01} - \ket{11} \bra{10} +  \ket{11} \bra{11} \Bigg) \\
+        &= 
+        \frac{1}{4}
+        \begin{pmatrix}
+        1 & -1 & -1 & 1 \\
+        -1 & 1 & 1 & -1 \\
+        -1 & 1 & 1 & -1 \\
+        1 & -1 & -1 & 1
+        \end{pmatrix}.
+\end{align*}
+Now
+\begin{align*}
+\rho' &= Tr(\ket{\psi} \bra{\psi}) \\
+         &= \braket{0|\psi} \braket{\psi|0} + \braket{1|\psi} \braket{\psi|1} \\
+         &= \frac{1}{4} ( \ket{0} \bra{0} - \ket{0} \bra{1} - \ket{1} \bra{0} +\ket{1} \bra{1} ) \\
+         &+ \frac{1}{4} ( \ket{0} \bra{0} - \ket{0} \bra{1} - \ket{1} \bra{0} + \ket{1} \bra{1} ) \\
+         &= \frac{1}{2} (\ket{0} \bra{0} - \ket{0} \bra{1} - \ket{1} \bra{0} + \ket{1} \bra{1}) \\
+         &= 
+         \frac{1}{2}
+         \begin{pmatrix}
+         1 & - 1 \\
+         -1 & 1 
+         \end{pmatrix}.
+\end{align*}
+On page 169 of the book, it is told that the above matrix has eigenvalues $\lambda_1 = 1, \lambda_2 = 0$, so the Schmidt number is one and this is a separable state.
 \end{document}
