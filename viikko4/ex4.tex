@@ -647,4 +647,396 @@ X \otimes Z \ket{00} &=
 \end{align*}
 so the state is entangled but is not a Bell state.
 
+\section*{QCE 7.9}
+Find the Pauli representation of 
+\[
+\rho = \begin{pmatrix}
+\sin^2 \theta                             & e^{-i\phi} \sin \theta \cos \theta \\
+e^{i\phi} \sin \theta \cos \theta & \cos^2 \theta
+\end{pmatrix}.
+\]
+First we need to compute 
+\begin{align*}
+c_0 &= Tr(\rho \sigma_0) \\
+      &= Tr(\rho) \\
+      &= \sin^2 \theta + \cos^2 \theta \\
+      &= 1,
+\end{align*}
+\begin{align*}
+c_1 &= Tr(\rho \sigma_1) \\
+      &= Tr(\rho \sigma_x) \\
+      &= 
+      Tr \begin{pmatrix}
+          \sin^2 \theta                             & e^{-i\phi} \sin \theta \cos \theta \\
+          e^{i\phi} \sin \theta \cos \theta & \cos^2 \theta
+      \end{pmatrix}
+      \begin{pmatrix}
+      0 & 1 \\
+      1 & 0
+      \end{pmatrix} \\
+      &= Tr
+      \begin{pmatrix}
+      e^{-i\phi} \sin \theta \cos \theta & \sin^2 \theta \\
+      \cos^2 \theta & e^{i\phi} \sin \theta \cos \theta
+      \end{pmatrix} \\
+      &= 
+      e^{-i\phi} \sin \theta \cos \theta + e^{i\phi} \sin \theta \cos \theta \\ 
+      &=
+      (\sin \theta \cos \theta)(\cos \phi -i \sin \phi + \cos \phi + i \sin \phi) \\
+      &= 2 \sin \theta \cos \theta \cos \phi,
+\end{align*}
+\begin{align*}
+c_2 &= Tr(\rho \sigma_2) \\
+      &= Tr(\rho \sigma_y) \\
+      &= 
+      Tr \begin{pmatrix}
+          \sin^2 \theta                             & e^{-i\phi} \sin \theta \cos \theta \\
+          e^{i\phi} \sin \theta \cos \theta & \cos^2 \theta
+      \end{pmatrix}
+      \begin{pmatrix}
+      0 & -i \\
+      i & 0
+      \end{pmatrix} \\
+      &=  Tr 
+      \begin{pmatrix}
+      ie^{-i\phi} \sin \theta \cos \theta & -i\sin^2 \theta \\
+      i \cos^2 \theta & -ie^{i\phi} \sin \theta \cos \theta
+      \end{pmatrix} \\
+      &= ie^{-i\phi} \sin \theta \cos \theta - ie^{i\phi} \sin \theta \cos \theta \\
+      &= \sin \theta \cos \theta (ie^{-i\phi} - ie^{i\phi}) \\
+	  &= \sin \theta \cos \theta (i(\cos \phi - i \sin \phi) -i (\cos \phi + i \sin \phi)) \\
+	  &= \sin \theta \cos \theta ( i\cos \phi -i^2 \sin \phi - i\cos \phi - i^2 \sin \phi ) \\
+	  &= 2 \sin \theta \cos \theta \sin \phi.
+\end{align*}
+\begin{align*}
+c_3 &= Tr(\rho \sigma_3) \\
+      &= Tr(\rho \sigma_z) \\
+      &= Tr
+      \begin{pmatrix}
+          \sin^2 \theta                             & e^{-i\phi} \sin \theta \cos \theta \\
+          e^{i\phi} \sin \theta \cos \theta & \cos^2 \theta
+      \end{pmatrix}
+      \begin{pmatrix}
+      1 & 0 \\
+      0 & -1 
+      \end{pmatrix} \\
+      &= Tr
+      \begin{pmatrix}
+      \sin^2 \theta & -e^{-i\phi} \sin \theta \cos \theta \\
+      e^{i\phi} \sin \theta \cos \theta & -\cos^2 \theta
+      \end{pmatrix} \\
+      &= \sin^2 \theta - \cos^2 \theta.
+\end{align*}
+The Pauli representation for the system is
+\[
+\rho = \sum_{i = 0}^{3} Tr(\sigma_i) \sigma_i.
+\]
+
+\section*{QCE 7.10}
+Use (7.36) to show that $\ket{\beta_{10}}$ is entangled. Apply the same criterion to test $X \otimes Z\ket{\beta_{00}}$.
+
+Here we have
+\[
+\ket{\beta_{00}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}, \qquad
+\ket{\beta_{10}} = \frac{\ket{00} - \ket{11}}{\sqrt{2}}.
+\]
+The density operator for $\ket{\beta_{10}}$ is
+\[
+\rho = \frac{1}{2}(\ket{00} - \ket{11})(\bra{00} - \bra{11}) = \frac{1}{2} (\ket{00} \bra{00} - \ket{00} \bra{11} - \ket{11} \bra{00} + \ket{11} \bra{11}),
+\]
+and its density matrix is
+\[
+\frac{1}{2} \begin{pmatrix}
+1  & 0  & 0 & -1 \\
+0  & 0  & 0 & 0 \\
+0  & 0  & 0 & 0 \\
+-1 & 0 & 0 & 1
+\end{pmatrix}.
+\]
+Next we find
+\begin{align*}
+c_{11} &= Tr(\rho X \otimes X) = Tr \frac{1}{2} 
+\begin{pmatrix}
+1 & 0 & 0 & -1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 1 
+\end{pmatrix}
+\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix} \\
+&=
+\frac{1}{2} Tr
+\begin{pmatrix}
+-1 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+1 & 0 & 0 & -1 
+\end{pmatrix} \\
+&= -1
+\end{align*}
+\begin{align*}
+c_{22} &= Tr(\rho Y \otimes Y) = Tr \frac{1}{2} 
+\begin{pmatrix}
+1 & 0 & 0 & -1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 1 
+\end{pmatrix}
+\begin{pmatrix}
+0 & 0 & 0 & -1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+-1 & 0 & 0 & 0 
+\end{pmatrix} \\
+&=
+\frac{1}{2} Tr
+\begin{pmatrix}
+1 & 0 & 0 & -1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 1 
+\end{pmatrix} \\
+&= 1
+\end{align*}
+\begin{align*}
+c_{33} &= Tr(\rho Z \otimes Z) = 
+Tr \frac{1}{2} 
+\begin{pmatrix}
+1 & 0 & 0 & -1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 1 
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & 1 
+\end{pmatrix} \\
+&=
+\frac{1}{2} Tr
+\begin{pmatrix}
+1 & 0 & 0 & -1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 1 
+\end{pmatrix} \\
+&= 1.
+\end{align*}
+Now we see that $|c_{11}| + |c_{22}| + |c_{33}| = 3$, so the state is entangled.
+
+\begin{align*}
+X \otimes Z \ket{\beta_{00}} &= 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+1 & 0 \\
+0 & -1 
+\end{pmatrix}
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\ 0 \\ 0 \\ 1
+\end{pmatrix} \\
+&= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1 \\
+1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 \\ 0 \\ 0 \\ 1
+\end{pmatrix} \\
+&= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\ -1 \\ 1 \\ 0
+\end{pmatrix} \\
+&= \frac{-\ket{01} + \ket{10}}{\sqrt{2}}.
+\end{align*}
+Now the density operator/matrix for the above state is 
+\begin{align*}
+\rho &= \frac{1}{2} (-\ket{01} + \ket{10}) (-\bra{01} + \bra{10}) \\
+        &= \frac{1}{2} ( \ket{01} \bra{01} - \ket{01} \bra{10} - \ket{10} \bra{01} + \ket{10} \bra{10} ) \\
+        &= 
+	    \frac{1}{2}        
+        \begin{pmatrix}
+        0 & 0   & 0   & 0 \\
+        0 & 1   & -1 & 0 \\
+        0 & -1 & 1   & 0 \\
+        0 & 0   & 0   & 0 
+        \end{pmatrix}.
+\end{align*}
+Next we find
+\begin{align*}
+c_{11} &= Tr (\rho X \otimes X) = \frac{1}{2} Tr 
+\begin{pmatrix}
+        0 & 0   & 0   & 0 \\
+        0 & 1   & -1 & 0 \\
+        0 & -1 & 1   & 0 \\
+        0 & 0   & 0   & 0 
+\end{pmatrix}
+\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix} \\
+&= \frac{1}{2} Tr 
+\begin{pmatrix}
+0 & 0 & 0 & 0 \\
+0 & -1 & 1 & 0 \\
+0 & 1 & -1 & 0 \\
+0 & 0 & 0 & 0 
+\end{pmatrix} = -1,
+\end{align*}
+\begin{align*}
+c_{22} &= Tr (\rho Y \otimes Y) = \frac{1}{2} Tr 
+\begin{pmatrix}
+        0 & 0   & 0   & 0 \\
+        0 & 1   & -1 & 0 \\
+        0 & -1 & 1   & 0 \\
+        0 & 0   & 0   & 0 
+\end{pmatrix}
+\begin{pmatrix}
+0 & 0 & 0 & -1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+-1 & 0 & 0 & 0 
+\end{pmatrix} \\
+&= \frac{1}{2} Tr 
+\begin{pmatrix}
+0 & 0 & 0 & 0 \\
+0 & -1 & 1 & 0 \\
+0 & 1 & -1 & 0 \\
+0 & 0 & 0 & 0 
+\end{pmatrix} = -1,
+\end{align*}
+\begin{align*}
+c_{33} &= Tr (\rho Z \otimes Z) = \frac{1}{2} Tr 
+\begin{pmatrix}
+        0 & 0   & 0   & 0 \\
+        0 & 1   & -1 & 0 \\
+        0 & -1 & 1   & 0 \\
+        0 & 0   & 0   & 0 
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & 1 
+\end{pmatrix} \\
+&= \frac{1}{2} Tr 
+\begin{pmatrix}
+0 & 0 & 0 & 0 \\
+0 & -1 & 1 & 0 \\
+0 & 1 & -1 & 0 \\
+0 & 0 & 0 & 0 
+\end{pmatrix} = -1.
+\end{align*}
+Once again we have $|c_{11}| + |c_{22}| + |c_{33}| = 3$ so this state is entangled as well.
+
+\section*{QCE 7.11}
+Derive 
+\[
+\ket{\beta_{00}} \bra{\beta_{00}} = \frac{1}{4} (I \otimes I + X \otimes X - Y \otimes Y + Z \otimes Z).
+\]
+We have that 
+\[
+\ket{\beta_{00}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}},
+\]
+so
+\begin{align*}
+\ket{\beta_{00}} \bra{\beta_{00}} &= \frac{1}{2} (\ket{00} + \ket{11})(\bra{00} + \bra{11}) \\
+		&= \frac{1}{2} (\ket{00} \bra{00} + \ket{00} \bra{11} + \ket{11} \bra{00} + \ket{11} \bra{11}) \\
+		&= \frac{1}{2}
+		\begin{pmatrix}
+		1 & 0 & 0 & 1 \\
+		0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 \\
+		1 & 0 & 0 & 1 
+		\end{pmatrix}.
+\end{align*}
+Now
+\begin{align*}
+I \otimes I + X \otimes X - Y \otimes Y + Z \otimes Z &=
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 
+\end{pmatrix} 
++
+\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix} \\
+&- 
+\begin{pmatrix}
+0 & 0 & 0 & - 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+-1 & 0 & 0 & 0 
+\end{pmatrix}
++ 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 & 0 & 0 & 1 \\
+0 & 1 & 1 & 0 \\
+0 & 1 & 1 & 0 \\
+1 & 0 & 0 & 1 
+\end{pmatrix}
++
+\begin{pmatrix}
+1 & 0 & 0 & 1 \\
+0 & -1 & -1 & 0 \\
+0 & -1 & -1 & 0 \\
+1 & 0 & 0 & 1 
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+2 & 0 & 0 & 2 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+2 & 0 & 0 & 2 
+\end{pmatrix} \\
+&= 4\ket{\beta_{00}} \bra{\beta_{00}},
+\end{align*}
+which yields the desired result.
+
+\section*{QCE 7.12}
+Can the following state be written in diagonal form in terms of the Bell basis?
+\[
+\rho = \begin{pmatrix}
+\frac{1}{2} & 0 & 0 & -\frac{1}{8} \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+-\frac{1}{8} & 0 & 0 & \frac{1}{2} 
+\end{pmatrix}
+\]
+Using (7.43), determine if this state is a separable state. 
+
+Now
+\begin{align*}
+\rho &= \frac{1}{2} \Bigg( \ket{00}\bra{00} + \ket{11} \bra{11} \Bigg) - \frac{1}{8} \Bigg( \ket{00} \bra{11} + \ket{11} \bra{00} \Bigg) \\
+        &= \frac{1}{2} \Bigg( \ket{\beta_{00}} \bra{\beta_{00}} + \ket{\beta_{10}} \bra{\beta_{10}} \Bigg) - \frac{1}{8} \Bigg( \ket{\beta_{00}} \bra{\beta_{00}} - \ket{\beta_{10}} \bra{\beta_{10}} \Bigg) \\
+        &= \frac{3}{8} \Bigg( \ket{\beta_{00}} \bra{\beta_{00}} \Bigg) + \frac{5}{8} \Bigg( \ket{\beta_{10}} \bra{\beta_{10}} \Bigg).
+\end{align*}
+Since $c_{00} = \frac{3}{8} \leq \frac{1}{2}$, this state is separable.
 \end{document}
