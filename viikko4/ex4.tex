@@ -138,4 +138,513 @@ Suppose Alice starts with two qubits in the Bell state $\frac{1}{\sqrt{2}} \ket{
 
 As we are speaking about teleportation, Bob sees the same state and receives exactly 2 bits of information as there is only 4 Bell states.
 
+\section*{QCE 7.1}
+\[
+\vec{\sigma} = \sigma_x \hat{x} + \sigma_y \hat{y} + \sigma_z \hat{z}, \qquad
+\vec{n} = \sin \theta \cos \phi \hat{x} + \sin \theta \sin \phi \hat{y} + \cos \theta \hat{z}.
+\]
+Now
+\begin{align*}
+\vec{\sigma} \cdot \vec{n} &= (\sigma_x \hat{x} + \sigma_y \hat{y} + \sigma_z \hat{z})(\sin \theta \cos \phi \hat{x} + \sin \theta \sin \phi \hat{y} + \cos \theta \hat{z}) \\
+            							   &= 
+\end{align*}
+
+\section*{QCE 7.2}
+Let 
+\[
+\ket{\psi} = \frac{\ket{0}\ket{1} - \ket{1}\ket{0}}{\sqrt{2}}.
+\]
+Now we have
+\[ 
+\ket{0} = \frac{\ket{+} + i\ket{-}}{\sqrt{2}}, \; \ket{1} = \frac{\ket{+} - i\ket{-}}{\sqrt{2}},
+\]
+so 
+\begin{align*}
+\ket{\psi} &= \frac{\ket{0}\ket{1} - \ket{1}\ket{0}}{\sqrt{2}} \\
+                &= \frac{1}{2\sqrt{2}} \Bigg( (\ket{+} + i\ket{-}) ( \ket{+} - i\ket{-} ) - (\ket{+} - i\ket{-}) ( \ket{+} + i\ket{-} ) \Bigg) \\
+                &= \frac{1}{2\sqrt{2}} \Bigg( \ket{++} - i\ket{+-} + i \ket{-+} +\ket{--} + \ket{++} + i\ket{+-} -i \ket{-+} + \ket{--}\Bigg) \\
+                &= \frac{1}{2\sqrt{2}} ( 2\ket{++}  + 2\ket{--}) \\
+                &= \frac{1}{\sqrt{2}} (\ket{++} + \ket{--}).
+\end{align*}
+
+\section*{QCE 7.3}
+Let
+\[
+\ket{\beta_{00}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}} 
+= \frac{1}{\sqrt{2}} 
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+1
+\end{pmatrix},
+ \; 
+ \ket{\beta_{01}} = \frac{\ket{01} + \ket{10}}{\sqrt{2}} 
+ =
+\frac{1}{\sqrt{2}} 
+ \begin{pmatrix}
+ 0 \\
+ 1 \\
+ 1 \\
+ 0
+ \end{pmatrix}.
+\]
+Also we know that
+\[
+Z = \begin{pmatrix}
+1 & 0 \\
+0 & - 1
+\end{pmatrix},
+\]
+so 
+\begin{align*}
+Z \otimes Z &= \begin{pmatrix}
+1 & 0 \\
+0 & - 1
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+1 & 0 \\
+0 & - 1
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 &  0  & 0   & 0 \\
+0 & -1 & 0   & 0 \\
+0 &  0  & -1 & 0 \\
+0 &  0  &  0  & 1
+\end{pmatrix}.
+\end{align*}
+Now
+\begin{align*}
+Z \otimes Z \ket{\beta_{00}} &= \begin{pmatrix}
+1 &  0  & 0   & 0 \\
+0 & -1 & 0   & 0 \\
+0 &  0  & -1 & 0 \\
+0 &  0  &  0  & 1
+\end{pmatrix}
+\frac{1}{\sqrt{2}} 
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+1
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+1
+\end{pmatrix} \\
+&= \beta_{00} \\
+&= (-1)^y \ket{\beta_{xy}},
+\end{align*}
+where $y = 0$ and $x = 0$.
+Also
+\begin{align*}
+Z \otimes Z \ket{\beta_{01}} &= \begin{pmatrix}
+1 &  0  & 0   & 0 \\
+0 & -1 & 0   & 0 \\
+0 &  0  & -1 & 0 \\
+0 &  0  &  0  & 1
+\end{pmatrix}
+\frac{1}{\sqrt{2}} 
+\begin{pmatrix}
+0 \\
+1 \\
+1 \\
+0
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+-1 \\
+-1 \\
+0
+\end{pmatrix} \\
+&= -\beta_{01} \\
+&= (-1)^y \ket{\beta_{xy}},
+\end{align*}
+where $y = 1$ and $x = 0$.
+
+\section*{QCE 7.4}
+Show that $X \otimes X \ket{\beta_{xy}} = (-1)^x \ket{\beta_{xy}}$. From the book we know that 
+\[
+\ket{\beta_{xy}} = \frac{\ket{0y} + (-1)^x\ket{1\bar{y}}}{\sqrt{2}} 
+= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+\bar{y} \\
+y \\
+(-1)^x y \\
+(-1)^x \bar{y}
+\end{pmatrix}.
+\]
+Also 
+\begin{align*}
+X \otimes X &= 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}
+\otimes 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix} \\
+&= \begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0
+\end{pmatrix},
+\end{align*}
+so
+\begin{align*}
+X \otimes X \ket{\beta_{xy}} &= 
+		\frac{1}{\sqrt{2}}
+		\begin{pmatrix}
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 0 \\
+        1 & 0 & 0 & 0
+		\end{pmatrix}
+		\begin{pmatrix}
+        \bar{y} \\
+        y \\
+        (-1)^x y \\
+        (-1)^x \bar{y} \\
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+        (-1)^x \bar{y} \\
+        (-1)^x y \\
+        y \\
+        \bar{y} \\
+\end{pmatrix} \\
+&= \frac{(-1)^x \ket{0y} + \ket{1\bar{y}}}{\sqrt{2}} \\
+&= (-1)^x \beta_{xy}.
+\end{align*}
+
+\section*{QCE 7.5}
+Show that $Y \otimes Y \ket{\beta_{xy}} = (-1)^{x + y} \ket{\beta_{xy}}$.
+From the book we know that 
+\[
+\ket{\beta_{xy}} = \frac{\ket{0y} + (-1)^x\ket{1\bar{y}}}{\sqrt{2}} 
+= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+\bar{y} \\
+y \\
+(-1)^x y \\
+(-1)^x \bar{y}
+\end{pmatrix}.
+\]
+Also 
+\begin{align*}
+Y \otimes Y &= 
+\begin{pmatrix}
+0 & -i \\
+i & 0
+\end{pmatrix}
+\otimes 
+\begin{pmatrix}
+0 & -i \\
+i & 0
+\end{pmatrix} \\
+&= \begin{pmatrix}
+0 & 0 & 0 & -1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+-1 & 0 & 0 & 0
+\end{pmatrix},
+\end{align*}
+so
+\begin{align*}
+Y \otimes Y \ket{\beta_{xy}} &= 
+		\frac{1}{\sqrt{2}}
+		\begin{pmatrix}
+        0 & 0 & 0 & -1 \\
+        0 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 0 \\
+        -1 & 0 & 0 & 0
+		\end{pmatrix}
+		\begin{pmatrix}
+        \bar{y} \\
+        y \\
+        (-1)^x y \\
+        (-1)^x \bar{y} \\
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+        -(-1)^x \bar{y} \\
+        (-1)^x y \\
+        y \\
+        -\bar{y} \\
+\end{pmatrix} \\
+&= (-1)^{x + \bar{y}} \ket{\beta_{xy}}.
+\end{align*}
+The book has a typo...
+
+\section*{QCE 7.6}
+Show that $X \otimes X$ commutes with $Z \otimes Z$. They commute if and only if $X \otimes X Z \otimes Z = X \otimes X Z \otimes Z$:
+\begin{align*}
+X \otimes X &= \begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}^{\otimes 2} \\
+&= \begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix}.
+\end{align*}
+\begin{align*}
+Z \otimes Z &= \begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}^{\otimes 2} \\
+&= 
+\begin{pmatrix}
+1 & 0   & 0  & 0 \\
+0 & -1 & 0  & 0 \\
+0 & 0   & -1 & 0 \\
+0 & 0   & 0   & 1
+\end{pmatrix}.
+\end{align*}
+Now
+\[
+\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0   & 0  & 0 \\
+0 & -1 & 0  & 0 \\
+0 & 0   & -1 & 0 \\
+0 & 0   & 0   & 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & -1 & 0 \\
+0 & -1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix}.
+\]
+Also 
+\[
+\begin{pmatrix}
+1 & 0   & 0  & 0 \\
+0 & -1 & 0  & 0 \\
+0 & 0   & -1 & 0 \\
+0 & 0   & 0   & 1
+\end{pmatrix}
+\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & -1 & 0 \\
+0 & -1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix},
+\]
+which proves that the two matrices commute.
+
+\section*{QCE 7.7}
+Consider the eigenvectors in Example 7.4. Show that $[H_I, \vec{\sigma_A} \cdot \vec{\sigma_B}] = 0$, and hence show that the eigenvectors of the Hamiltonian are eigenvectors of the $\vec{\sigma_A} \cdot \vec{\sigma_B}$ operator. In particular, show that $\vec{\sigma_A} \cdot \vec{\sigma_B} \ket{\phi_i} = \ket{\phi_i}$ for $i = 1, 2, 3$ and 
+$\vec{\sigma_A} \cdot \vec{\sigma_B} \ket{\phi_4} = -3 \ket{\phi_4}$.
+
+From the Example 7.4 we have that
+\[
+H_I = 
+\frac{\mu^2}{r^3}
+\begin{pmatrix}
+-2 & 0 & 0 & 0 \\
+0 & 2 & 2 & 0 \\
+0 & 2 & 2 & 0 \\
+0 & 0 & 0 & -2
+\end{pmatrix},
+\;
+\vec{\sigma_A} \cdot \vec{\sigma_B} = 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 2 & 0 \\
+0 & 2 & -1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}.
+\]
+Condition $[H_I, \vec{\sigma_A} \cdot \vec{\sigma_B}] = 0$ means that the two matrices commute and that is the case as a routine calculation may show. Wolframalpha tells me that the eigenvectors of $H_I$ are
+\[
+\begin{pmatrix}
+0 \\
+-1 \\
+-1 \\
+0
+\end{pmatrix}, \qquad
+\begin{pmatrix}
+0 \\
+0 \\
+0 \\
+1
+\end{pmatrix}, \qquad
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+0
+\end{pmatrix}, \qquad
+\begin{pmatrix}
+0 \\
+-1 \\
+1 \\
+0
+\end{pmatrix},
+\]
+and that is not in accord with the eigenvectors of $\vec{\sigma_A} \cdot \vec{\sigma_B}$, thank you, book. :(
+
+Now
+\begin{align*}
+\vec{\sigma_A} \cdot \vec{\sigma_B} \ket{\phi_1} &= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 2 & 0 \\
+0 & 2 & -1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+1 \\
+1 \\
+0
+\end{pmatrix} \\
+   &= 
+   \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+1 \\
+1 \\
+0
+\end{pmatrix} \\
+&= \ket{\phi_1},
+\end{align*}
+\begin{align*}
+\vec{\sigma_A} \cdot \vec{\sigma_B} \ket{\phi_2} &=
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 2 & 0 \\
+0 & 2 & -1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} 
+\begin{pmatrix}
+0 \\
+0 \\
+0 \\
+1
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+0 \\
+0 \\
+0 \\
+1 
+\end{pmatrix} \\
+&= \ket{\phi_2},
+\end{align*}
+\begin{align*}
+\vec{\sigma_A} \cdot \vec{\sigma_B} \ket{\phi_3} &= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 2 & 0 \\
+0 & 2 & -1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} 
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+0
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+0
+\end{pmatrix} \\
+&= \ket{\phi_3},
+\end{align*}
+\begin{align*}
+\vec{\sigma_A} \cdot \vec{\sigma_B} \ket{\phi_4} &= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 2 & 0 \\
+0 & 2 & -1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+1 \\
+-1 \\
+0
+\end{pmatrix}  \\
+&= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+-3 \\
+3 \\
+0
+\end{pmatrix} \\
+&= -3 \ket{\phi_4}.
+\end{align*}
+
+\section*{QCE 7,8}
+Is the state $X \otimes Z \ket{\beta_{00}}$ entangled?
+\begin{align*}
+X \otimes Z \ket{00} &= 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0 
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+1 & 0 \\
+0 & - 1
+\end{pmatrix}
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\ 0 \\ 0 \\ 1
+\end{pmatrix} \\
+&= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 & 0   & 1 & 0 \\
+0 & 0   & 0 & -1 \\
+1 & 0   & 0 & 0 \\
+0 & -1 & 0 & 0 
+\end{pmatrix}
+\begin{pmatrix}
+1 \\ 0 \\ 0 \\ 1
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\ -1 \\ 1 \\ 0
+\end{pmatrix} \\
+&= \frac{-\ket{01} + \ket{10}}{\sqrt{2}} \\
+&= -\ket{\beta_{11}},
+\end{align*}
+so the state is entangled but is not a Bell state.
+
 \end{document}
