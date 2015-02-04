@@ -1190,4 +1190,383 @@ Now
          \end{pmatrix}.
 \end{align*}
 On page 169 of the book, it is told that the above matrix has eigenvalues $\lambda_1 = 1, \lambda_2 = 0$, so the Schmidt number is one and this is a separable state.
+
+\section*{QCE 8.1}
+Describe the action of the Y gate in terms of the Bloch sphere picture.
+
+We have 
+\[
+\ket{\psi} = \cos \theta \ket{0} + e^{i\phi} \sin \theta \ket{1} = 
+\begin{pmatrix}
+\cos \theta \\
+e^{i\phi} \sin \theta
+\end{pmatrix},
+ \qquad Y =
+\begin{pmatrix}
+0 & -i \\
+i  & 0
+\end{pmatrix}.
+\]
+Now
+\begin{align*}
+Y\ket{\psi} &= 
+\begin{pmatrix}
+0 & -i \\
+i  & 0
+\end{pmatrix}
+\begin{pmatrix}
+\cos \theta \\
+e^{i\phi} \sin \theta
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+-ie^{i\phi} \sin \theta \\
+i \cos \theta
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+-i ( \cos \phi + i \sin \phi ) \sin \theta \\
+i \cos \theta
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+-i \cos \phi \sin \theta + \sin \phi \sin \theta \\
+i \cos \theta
+\end{pmatrix}
+\end{align*}
+
+\section*{QCE 8.2}
+\[
+X^{11} =
+\begin{pmatrix}
+1 & 0 \\
+0 & 0
+\end{pmatrix},
+\qquad
+X^{12} =
+\begin{pmatrix}
+0 & 1 \\
+0 & 0
+\end{pmatrix},
+\qquad
+X^{21} =
+\begin{pmatrix}
+0 & 0 \\
+1 & 0
+\end{pmatrix},
+\qquad
+X^{22} =
+\begin{pmatrix}
+0 & 0 \\
+0 & 1
+\end{pmatrix}.
+\]
+The Hadamard basis is
+\[
+\ket{+} = 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+1
+\end{pmatrix}, \qquad
+\ket{-} = 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+-1
+\end{pmatrix}, 
+\]
+so
+\[
+X^{11} \ket{+} =
+\frac{1}{\sqrt{2}} \ket{0}, \;
+X^{12} \ket{+} =
+\frac{1}{\sqrt{2}} \ket{0}, \;
+X^{21} \ket{+} =
+\frac{1}{\sqrt{2}} \ket{1}, \;
+X^{22} \ket{+} =
+\frac{1}{\sqrt{2}} \ket{1},
+\]
+and
+\[
+X^{11} \ket{-} =
+\frac{1}{\sqrt{2}} \ket{0}, \;
+X^{12} \ket{-} =
+- \frac{1}{\sqrt{2}} \ket{0}, \;
+X^{21} \ket{-} =
+\frac{1}{\sqrt{2}} \ket{1}, \;
+X^{22} \ket{-} =
+-\frac{1}{\sqrt{2}} \ket{1}.
+\]
+
+\section*{QCE 8.3}
+Find a way to write the Pauli operators X, Y and Z in terms of the Hubbard operators.
+
+This is a basic matrix shit:
+\begin{align*}
+X &=
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}
+= X^{12} + X^{21}, \\
+Y &= \begin{pmatrix}
+0 & -i \\
+i  & 0 
+\end{pmatrix}
+= -i X^{12} + i X^{21} = i(X^{21} - X^{12}), \\
+Z &= \begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix} 
+= X^{11} - X^{22}.
+\end{align*}
+
+\section*{QCE 8.4}
+Show that the controlled NOT gate is Hermitian and unitary.
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}
+= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}^{\dag},
+\]
+so the matrix is Hermitian. Also
+\begin{align*}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}
+= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix},
+\end{align*}
+so the matrix is unitary.
+
+\section*{QCE 8.5}
+Let $\ket{a} = \ket{1}$, and consider the circuit shown in Figure 8.5. Determine which Bell states are generated as output when $\ket{b} = \ket{0}$, $\ket{b} = \ket{1}$.
+
+The Hadamard gate converts $\ket{a} = \ket{1}$ to $\ket{-} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1})$. Also the matrix representation of CNOT is
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}.
+\]
+For the first case, we have $\ket{b} = \ket{0}$, so the input qubit is 
+\[
+\ket{a} \ket{b} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1})\ket{0} = \frac{1}{\sqrt{2}} (\ket{00} - \ket{10} = 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+0 \\
+-1 \\
+0
+\end{pmatrix},
+\]
+and
+\begin{align*}
+CNOT \ket{ab} &= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 \\
+0 \\
+-1 \\
+0
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+-1
+\end{pmatrix} \\
+&= \ket{\beta_{10}}.
+\end{align*}
+For the second case, we have $\ket{b} = \ket{1}$, so the input qubit is 
+\[
+\ket{a} \ket{b} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1})\ket{1} = \frac{1}{\sqrt{2}} (\ket{01} - \ket{11} = 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+1 \\
+0 \\
+-1
+\end{pmatrix},
+\]
+and
+\begin{align*}
+CNOT \ket{ab} &= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+0 \\
+1 \\
+0 \\
+-1
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+1 \\
+-1 \\
+0
+\end{pmatrix} \\
+&= \ket{\beta_{11}}.
+\end{align*}
+
+\section*{QCE 8.6}
+Write down the matrix representation for the controlled Z gate. Then write down its representation using Dirac notation.
+
+The matrix representation is
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1 \\
+\end{pmatrix},
+\]
+and in Dirac notation this is $\ket{00} \bra{00} + \ket{01} \bra{01}  + \ket{10} \bra{10} - \ket{11} \bra{11}$.
+
+\section*{QCE 8.7}
+\begin{align*}
+X^2 &= 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0 
+\end{pmatrix}
+\begin{pmatrix}
+0 & 1 \\
+1 & 0 
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix} \\
+&= I,
+\end{align*}
+\begin{align*}
+Y^2 &= 
+\begin{pmatrix}
+0 & -i \\
+i  & 0
+\end{pmatrix}
+\begin{pmatrix}
+0 & -i \\
+i  & 0
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix} \\
+&= I,
+\end{align*}
+\begin{align*}
+Z^2 &= 
+\begin{pmatrix}
+1 &  0 \\
+0  & -1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix} \\
+&= I,
+\end{align*}
+\begin{align*}
+S^2 &= 
+\begin{pmatrix}
+1 &  0 \\
+0  & i
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 \\
+0 & i
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix} \\
+&= Z,
+\end{align*}
+\begin{align*}
+T^2 &= 
+\begin{pmatrix}
+1 &  0 \\
+0  & e^{i\pi / 4}
+\end{pmatrix}
+\begin{pmatrix}
+1 &  0 \\
+0  & e^{i\pi / 4}
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & e^{i\pi / 4} e^{i\pi / 4}
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & e^{2i\pi / 4}
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & e^{i\pi / 2}
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & \cos \frac{\pi}{2} + i \sin \frac{\pi}{2}
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & i
+\end{pmatrix} \\
+&= S.
+\end{align*}
+
 \end{document}
