@@ -385,7 +385,7 @@ Y \otimes Y \ket{\beta_{xy}} &=
 \end{pmatrix} \\
 &= (-1)^{x + \bar{y}} \ket{\beta_{xy}}.
 \end{align*}
-The book has a typo...
+The book has a typo as in the above formula in the term $x + y$ $y$ should be $\bar{y}$.
 
 \section*{QCE 7.6}
 Show that $X \otimes X$ commutes with $Z \otimes Z$. They commute if and only if $X \otimes X Z \otimes Z = X \otimes X Z \otimes Z$:
@@ -1568,5 +1568,163 @@ T^2 &=
 \end{pmatrix} \\
 &= S.
 \end{align*}
+
+\section*{QCE 8.10}
+By using the tensor product methods developed in chapter 4, show that the controlled-NOT matrix can be generated from $P_0 \otimes I + P_1 \otimes X$.
+
+\begin{align*}
+P_0 \otimes I + P_1 \otimes X &= 
+\begin{pmatrix}
+1 & 0 \\
+0 & 0
+\end{pmatrix}
+\otimes 
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}
++ 
+\begin{pmatrix}
+0 & 0 \\
+0 & 1
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 
+\end{pmatrix}
++
+\begin{pmatrix}
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 
+\end{pmatrix} \\
+&= CNOT.
+\end{align*}
+
+\section*{QCE 8.11}
+The operator matrix of the left circuit is that of CNOT:
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}.
+\]
+The two ``parallel'' Hadamard gates may be represented as
+\[
+H^{\otimes 2} = 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 & 1   & 1   & 1 \\
+1 & -1 & 1   & -1 \\
+1 & 1   & -1 & -1 \\
+1 & -1 & -1 & 1 \\
+\end{pmatrix},
+\]
+so
+\begin{align*}
+H^{\otimes 2} \times CNOT \times H^{\otimes 2} &= 
+\frac{1}{4}
+\begin{pmatrix}
+1 & 1   & 1   & 1 \\
+1 & -1 & 1   & -1 \\
+1 & 1   & -1 & -1 \\
+1 & -1 & -1 & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1   & 1   & 1 \\
+1 & -1 & 1   & -1 \\
+1 & 1   & -1 & -1 \\
+1 & -1 & -1 & 1 \\
+\end{pmatrix} \\
+&= 
+\frac{1}{4}
+\begin{pmatrix}
+4 & 0 & 0 & 0 \\
+0 & 4 & 0 & 0 \\
+0 & 0 & 0 & 4 \\
+0 & 0 & 4 & 0
+\end{pmatrix} \\
+&= CNOT.
+\end{align*}
+
+\section*{QCE 8.12}
+\begin{align*}
+V &= (1 - i) \frac{I + iX}{2} \\
+   &= \frac{(1 - i)}{2} 
+\Bigg( 
+\begin{pmatrix}
+ 1 & 0 \\
+ 0 & 1  
+\end{pmatrix}    
++
+\begin{pmatrix}
+0 & i \\
+i & 0
+\end{pmatrix}
+\Bigg) \\
+&= 
+\frac{(1-i)}{2} 
+\begin{pmatrix}
+1 & i \\
+i & 1
+\end{pmatrix} \\
+&= 
+\frac{1}{2}
+\begin{pmatrix}
+1 - i & 1 + i \\
+1 + i & 1 - i
+\end{pmatrix}
+\end{align*}
+Now, the conditional $CV$ gate is 
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 - i & 1 + i \\
+0 & 0 & 1 + i & 1 - i 
+\end{pmatrix},
+\]
+and the conditional $CV^{\dag}$ is
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 + i & 1 - i \\
+0 & 0 & 1 - i & 1 + i 
+\end{pmatrix},
+\]
+
+\section*{Problems not solved}
+\begin{itemize}
+\item QCE 7.1 
+\item (Ask about QCE 7.9)
+\item (Ask about QCE 7.14)
+\item (Ask about QCE 8.1)
+\item QCE 8.12
+\end{itemize}
 
 \end{document}
