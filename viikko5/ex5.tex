@@ -1,0 +1,2019 @@
+\documentclass[10pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[ruled,linesnumbered,noend]{algorithm2e}
+\usepackage{empheq}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{gensymb}
+
+\title{Kvanttilaskenta, kevät 2015 -- Viikko 5}
+\author{Rodion ``rodde'' Efremov}
+
+\begin{document}
+ \maketitle
+
+\section*{edx Problem 1}
+We have
+\begin{align*}
+QFT_M &= 
+\frac{1}{\sqrt{6}}
+\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 \\
+1 & \omega & \omega^{2} & \omega^{3} & \omega^{4} & \omega^{5} \\
+1 & \omega^{2} & \omega^{4} & \omega^{6} & \omega^{8} & \omega^{10} \\
+1 & \omega^{3} & \omega^{6} & \omega^{9} & \omega^{12} & \omega^{15} \\
+1 & \omega^{4} & \omega^{8} & \omega^{12} & \omega^{16} & \omega^{20} \\
+1 & \omega^{5} & \omega^{10} & \omega^{15} & \omega^{20} & \omega^{25} 
+\end{pmatrix} \\
+&= 
+\frac{1}{\sqrt{6}}
+\begin{pmatrix}
+1 & 1 & 1 & 1 & 1 & 1 \\
+1 & \omega & \omega^{2} & \omega^{3} & \omega^{4} & \omega^{5} \\
+1 & \omega^{2} & \omega^{4} & 1 & \omega^{2} & \omega^{4} \\
+1 & \omega^{3} & 1 & \omega^{3} & 1 & \omega^{3} \\
+1 & \omega^{4} & \omega^{2} & 1 & \omega^{4} & \omega^{2} \\
+1 & \omega^{5} & \omega^{4} & \omega^{3} & \omega^{2} & \omega^{1} \\
+\end{pmatrix}
+\end{align*}
+Now $\omega = e^{2\pi i j / M}$, for $j = 0, 1, \dots, M - 1$.
+
+\section*{edx Problem 2}
+What is $QFT_6$ of $\frac{1}{\sqrt{2}} (\ket{0} + \ket{3})$? 
+
+Now the matrix representation of the input state is
+\[
+\ket{\psi} = \frac{1}{\sqrt{2}} 
+\begin{pmatrix}
+1 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0
+\end{pmatrix},
+\]
+so the QFT of $\ket{\psi}$ is
+\[
+\frac{1}{\sqrt{12}}
+\begin{pmatrix}
+2 \\ 
+1  + \omega^{3} \\
+2 \\
+1 + \omega^{3} \\
+2 \\
+1 + \omega^{3}
+\end{pmatrix},
+\]
+where $\omega^{3} = e^{2\pi i \times 3 / 6} = e^{\pi i} = \cos \pi + i \sin \pi = -1$, so
+\[
+\ket{\psi} = \frac{1}{\sqrt{12}}
+\begin{pmatrix}
+2 \\ 0 \\2 \\ 0 \\2 \\ 0 
+\end{pmatrix}.
+\]
+The probability of measuring $\ket{0}, \ket{2}, \ket{4}$ is $\frac{1}{3}$ each and other probabilities are 0.
+
+\section*{edx Problem 3}
+What is $QFT_6$ of $\frac{1}{\sqrt{2}} (\ket{1} + \ket{4})$? Now we have a state
+\[
+\ket{\psi} = \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+1 \\
+0 \\
+0 \\
+1 \\
+0
+\end{pmatrix},
+\]
+so the result is
+\[
+\frac{1}{\sqrt{12}}
+\begin{pmatrix}
+2 \\
+\omega + \omega^{4} \\
+2\omega^{2} \\
+1 + \omega^{3} \\
+2\omega^{4} \\
+\omega^{5} + \omega^{2}
+\end{pmatrix}
+= 
+\frac{1}{\sqrt{12}}
+\begin{pmatrix}
+2 \\ 0 \\ 2 \omega^{2} \\ 0 \\ 2 \omega^4 \\ 0
+\end{pmatrix}.
+\]
+Now it is easy to see that the probability of measuring $\ket{0}, \ket{2}, \ket{4}$ is $\frac{1}{3}$ each and zero probability of seeing other.
+
+\section*{edx Problem 4}
+What is $QFT_6$ of $\frac{1}{\sqrt{3}} ( \ket{0} + \ket{2} + \ket{4} )$? Now the input state is
+\[
+\ket{\psi} = 
+\frac{1}{\sqrt{3}}
+\begin{pmatrix}
+1 \\ 0 \\ 1 \\ 0 \\ 1 \\ 0 \
+\end{pmatrix},
+\]
+so that the result state is
+\[
+\frac{1}{\sqrt{18}}
+\begin{pmatrix}
+3 \\
+1 + \omega^2 + \omega^4 \\
+1 + \omega^4 + \omega^2 \\
+3 \\
+1 + \omega^2 + \omega^4 \\
+1 + \omega^4 + \omega^2 
+\end{pmatrix}
+= 
+\frac{1}{\sqrt{18}}
+\begin{pmatrix}
+3 \\
+0 \\
+0 \\
+3 \\
+0 \\
+0
+\end{pmatrix},
+\]
+ so the probability of measuring $\ket{0}$ or $\ket{3}$ is $\frac{1}{2}$ each and the other states has probability 0.
+
+\section*{edx Problem 5}
+What is $QFT_6$ of $\frac{1}{\sqrt{3}} ( \ket{1} + \ket{3} + \ket{5} )$? The input state is
+\[
+\frac{1}{\sqrt{3}}
+\begin{pmatrix}
+0 \\ 1 \\ 0 \\ 1 \\ 0 \\ 1 
+\end{pmatrix},
+\] 
+so the result state is 
+\[
+\frac{1}{\sqrt{18}}
+\begin{pmatrix}
+3 \\
+\omega + \omega^3 + \omega^5 \\
+\omega^2 + 1 + \omega^4 \\
+3 \omega^3 \\
+\omega^4 + 1 + \omega^2 \\
+\omega^5 + \omega^3 + \omega
+\end{pmatrix}
+= 
+\frac{1}{\sqrt{18}}
+\begin{pmatrix}
+3 \\ 0 \\ 0 \\ -3 \\ 0 \\ 0 \\
+\end{pmatrix}.
+\]
+ The probability of measuring $\ket{0}$ or $\ket{3}$ is $\frac{1}{2}$ each, and other probabilities are zero.
+ 
+\section*{edx Problem 7}
+Consider the periodic superposition $\ket{a} = \sqrt{\frac{k}{M}} \sum_{j = 0}^{M/k - 1} \ket{jk}$. Let $\beta = \sum_j \beta_j \ket{j}$ be its $QFT_M$.
+
+(a) Derive an expression for $\beta_j$. The desired expression is
+\[
+\frac{\sqrt{k}}{M} \sum_{l = 0}^{M/k - 1} e^{2\pi j l k i/M}.
+\] 
+
+(b) If $j$ is a multiple of $M/k$, what is the value of $\beta_j$? So we have that $j = aM / k$ for some nonnegative integer $a$. Now
+\begin{align*}
+\frac{\sqrt{k}}{M} \sum_{l = 0}^{M/k - 1} e^{2\pi j l k i/M} &= \frac{\sqrt{k}}{M} \sum_{l = 0}^{M/k - 1} e^{2\pi a l  i} \\
+&= \frac{\sqrt{k}}{M} \sum_{l = 0}^{M/k - 1} 1 \\
+&= \frac{\sqrt{k}}{M} M/k \\
+&= \frac{1}{\sqrt{k}}.
+\end{align*}
+
+(c) If $j$ is not a multiple of $M/k$, what is the value of $\beta_j$? Now suppose $j = aM/k + r$ for some nonnegative integer $a$ and an integer $r \in [1, a)$. We have
+\begin{align*}
+\frac{\sqrt{k}}{M} \sum_{l = 0}^{M/k - 1} e^{2\pi j l k i/M} &= \frac{\sqrt{k}}{M} \sum_{l = 0}^{M/k - 1} e^{2\pi l k i ( aM / k + r ) / M} \\
+&= \frac{\sqrt{k}}{M} \sum_{l = 0}^{M/k - 1} e^{2\pi l k i ( aM / k ) / M + 2\pi l k i r / M }  \\
+&= \frac{\sqrt{k}}{M} \sum_{l = 0}^{M/k - 1} e^{2 \pi l i a} e^{2 i \pi l k r / M} \\
+&= \frac{\sqrt{k}}{M} \sum_{l = 0}^{M/k - 1} e^{2 i \pi l k r / M} \\
+&= 
+\end{align*}
+
+\section*{QCE 7.1}
+\[
+\vec{\sigma} = \sigma_x \hat{x} + \sigma_y \hat{y} + \sigma_z \hat{z}, \qquad
+\vec{n} = \sin \theta \cos \phi \hat{x} + \sin \theta \sin \phi \hat{y} + \cos \theta \hat{z}.
+\]
+Now
+\begin{align*}
+\vec{\sigma} \cdot \vec{n} &= (\sigma_x \hat{x} + \sigma_y \hat{y} + \sigma_z \hat{z})(\sin \theta \cos \phi \hat{x} + \sin \theta \sin \phi \hat{y} + \cos \theta \hat{z}) \\
+            							   &= 
+\end{align*}
+
+\section*{QCE 7.2}
+Let 
+\[
+\ket{\psi} = \frac{\ket{0}\ket{1} - \ket{1}\ket{0}}{\sqrt{2}}.
+\]
+Now we have
+\[ 
+\ket{0} = \frac{\ket{+} + i\ket{-}}{\sqrt{2}}, \; \ket{1} = \frac{\ket{+} - i\ket{-}}{\sqrt{2}},
+\]
+so 
+\begin{align*}
+\ket{\psi} &= \frac{\ket{0}\ket{1} - \ket{1}\ket{0}}{\sqrt{2}} \\
+                &= \frac{1}{2\sqrt{2}} \Bigg( (\ket{+} + i\ket{-}) ( \ket{+} - i\ket{-} ) - (\ket{+} - i\ket{-}) ( \ket{+} + i\ket{-} ) \Bigg) \\
+                &= \frac{1}{2\sqrt{2}} \Bigg( \ket{++} - i\ket{+-} + i \ket{-+} +\ket{--} + \ket{++} + i\ket{+-} -i \ket{-+} + \ket{--}\Bigg) \\
+                &= \frac{1}{2\sqrt{2}} ( 2\ket{++}  + 2\ket{--}) \\
+                &= \frac{1}{\sqrt{2}} (\ket{++} + \ket{--}).
+\end{align*}
+
+\section*{QCE 7.3}
+Let
+\[
+\ket{\beta_{00}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}} 
+= \frac{1}{\sqrt{2}} 
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+1
+\end{pmatrix},
+ \; 
+ \ket{\beta_{01}} = \frac{\ket{01} + \ket{10}}{\sqrt{2}} 
+ =
+\frac{1}{\sqrt{2}} 
+ \begin{pmatrix}
+ 0 \\
+ 1 \\
+ 1 \\
+ 0
+ \end{pmatrix}.
+\]
+Also we know that
+\[
+Z = \begin{pmatrix}
+1 & 0 \\
+0 & - 1
+\end{pmatrix},
+\]
+so 
+\begin{align*}
+Z \otimes Z &= \begin{pmatrix}
+1 & 0 \\
+0 & - 1
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+1 & 0 \\
+0 & - 1
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 &  0  & 0   & 0 \\
+0 & -1 & 0   & 0 \\
+0 &  0  & -1 & 0 \\
+0 &  0  &  0  & 1
+\end{pmatrix}.
+\end{align*}
+Now
+\begin{align*}
+Z \otimes Z \ket{\beta_{00}} &= \begin{pmatrix}
+1 &  0  & 0   & 0 \\
+0 & -1 & 0   & 0 \\
+0 &  0  & -1 & 0 \\
+0 &  0  &  0  & 1
+\end{pmatrix}
+\frac{1}{\sqrt{2}} 
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+1
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+1
+\end{pmatrix} \\
+&= \beta_{00} \\
+&= (-1)^y \ket{\beta_{xy}},
+\end{align*}
+where $y = 0$ and $x = 0$.
+Also
+\begin{align*}
+Z \otimes Z \ket{\beta_{01}} &= \begin{pmatrix}
+1 &  0  & 0   & 0 \\
+0 & -1 & 0   & 0 \\
+0 &  0  & -1 & 0 \\
+0 &  0  &  0  & 1
+\end{pmatrix}
+\frac{1}{\sqrt{2}} 
+\begin{pmatrix}
+0 \\
+1 \\
+1 \\
+0
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+-1 \\
+-1 \\
+0
+\end{pmatrix} \\
+&= -\beta_{01} \\
+&= (-1)^y \ket{\beta_{xy}},
+\end{align*}
+where $y = 1$ and $x = 0$.
+
+\section*{QCE 7.4}
+Show that $X \otimes X \ket{\beta_{xy}} = (-1)^x \ket{\beta_{xy}}$. From the book we know that 
+\[
+\ket{\beta_{xy}} = \frac{\ket{0y} + (-1)^x\ket{1\bar{y}}}{\sqrt{2}} 
+= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+\bar{y} \\
+y \\
+(-1)^x y \\
+(-1)^x \bar{y}
+\end{pmatrix}.
+\]
+Also 
+\begin{align*}
+X \otimes X &= 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}
+\otimes 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix} \\
+&= \begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0
+\end{pmatrix},
+\end{align*}
+so
+\begin{align*}
+X \otimes X \ket{\beta_{xy}} &= 
+		\frac{1}{\sqrt{2}}
+		\begin{pmatrix}
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 0 \\
+        1 & 0 & 0 & 0
+		\end{pmatrix}
+		\begin{pmatrix}
+        \bar{y} \\
+        y \\
+        (-1)^x y \\
+        (-1)^x \bar{y} \\
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+        (-1)^x \bar{y} \\
+        (-1)^x y \\
+        y \\
+        \bar{y} \\
+\end{pmatrix} \\
+&= \frac{(-1)^x \ket{0y} + \ket{1\bar{y}}}{\sqrt{2}} \\
+&= (-1)^x \beta_{xy}.
+\end{align*}
+
+\section*{QCE 7.5}
+Show that $Y \otimes Y \ket{\beta_{xy}} = (-1)^{x + y} \ket{\beta_{xy}}$.
+From the book we know that 
+\[
+\ket{\beta_{xy}} = \frac{\ket{0y} + (-1)^x\ket{1\bar{y}}}{\sqrt{2}} 
+= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+\bar{y} \\
+y \\
+(-1)^x y \\
+(-1)^x \bar{y}
+\end{pmatrix}.
+\]
+Also 
+\begin{align*}
+Y \otimes Y &= 
+\begin{pmatrix}
+0 & -i \\
+i & 0
+\end{pmatrix}
+\otimes 
+\begin{pmatrix}
+0 & -i \\
+i & 0
+\end{pmatrix} \\
+&= \begin{pmatrix}
+0 & 0 & 0 & -1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+-1 & 0 & 0 & 0
+\end{pmatrix},
+\end{align*}
+so
+\begin{align*}
+Y \otimes Y \ket{\beta_{xy}} &= 
+		\frac{1}{\sqrt{2}}
+		\begin{pmatrix}
+        0 & 0 & 0 & -1 \\
+        0 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 0 \\
+        -1 & 0 & 0 & 0
+		\end{pmatrix}
+		\begin{pmatrix}
+        \bar{y} \\
+        y \\
+        (-1)^x y \\
+        (-1)^x \bar{y} \\
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+        -(-1)^x \bar{y} \\
+        (-1)^x y \\
+        y \\
+        -\bar{y} \\
+\end{pmatrix} \\
+&= (-1)^{x + \bar{y}} \ket{\beta_{xy}}.
+\end{align*}
+The book has a typo as in the above formula in the term $x + y$ $y$ should be $\bar{y}$.
+
+\section*{QCE 7.6}
+Show that $X \otimes X$ commutes with $Z \otimes Z$. They commute if and only if $X \otimes X Z \otimes Z = X \otimes X Z \otimes Z$:
+\begin{align*}
+X \otimes X &= \begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}^{\otimes 2} \\
+&= \begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix}.
+\end{align*}
+\begin{align*}
+Z \otimes Z &= \begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix}^{\otimes 2} \\
+&= 
+\begin{pmatrix}
+1 & 0   & 0  & 0 \\
+0 & -1 & 0  & 0 \\
+0 & 0   & -1 & 0 \\
+0 & 0   & 0   & 1
+\end{pmatrix}.
+\end{align*}
+Now
+\[
+\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0   & 0  & 0 \\
+0 & -1 & 0  & 0 \\
+0 & 0   & -1 & 0 \\
+0 & 0   & 0   & 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & -1 & 0 \\
+0 & -1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix}.
+\]
+Also 
+\[
+\begin{pmatrix}
+1 & 0   & 0  & 0 \\
+0 & -1 & 0  & 0 \\
+0 & 0   & -1 & 0 \\
+0 & 0   & 0   & 1
+\end{pmatrix}
+\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & -1 & 0 \\
+0 & -1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix},
+\]
+which proves that the two matrices commute.
+
+\section*{QCE 7.7}
+Consider the eigenvectors in Example 7.4. Show that $[H_I, \vec{\sigma_A} \cdot \vec{\sigma_B}] = 0$, and hence show that the eigenvectors of the Hamiltonian are eigenvectors of the $\vec{\sigma_A} \cdot \vec{\sigma_B}$ operator. In particular, show that $\vec{\sigma_A} \cdot \vec{\sigma_B} \ket{\phi_i} = \ket{\phi_i}$ for $i = 1, 2, 3$ and 
+$\vec{\sigma_A} \cdot \vec{\sigma_B} \ket{\phi_4} = -3 \ket{\phi_4}$.
+
+From the Example 7.4 we have that
+\[
+H_I = 
+\frac{\mu^2}{r^3}
+\begin{pmatrix}
+-2 & 0 & 0 & 0 \\
+0 & 2 & 2 & 0 \\
+0 & 2 & 2 & 0 \\
+0 & 0 & 0 & -2
+\end{pmatrix},
+\;
+\vec{\sigma_A} \cdot \vec{\sigma_B} = 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 2 & 0 \\
+0 & 2 & -1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}.
+\]
+Condition $[H_I, \vec{\sigma_A} \cdot \vec{\sigma_B}] = 0$ means that the two matrices commute and that is the case as a routine calculation may show. Wolframalpha tells me that the eigenvectors of $H_I$ are
+\[
+\begin{pmatrix}
+0 \\
+-1 \\
+-1 \\
+0
+\end{pmatrix}, \qquad
+\begin{pmatrix}
+0 \\
+0 \\
+0 \\
+1
+\end{pmatrix}, \qquad
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+0
+\end{pmatrix}, \qquad
+\begin{pmatrix}
+0 \\
+-1 \\
+1 \\
+0
+\end{pmatrix},
+\]
+and that is not in accord with the eigenvectors of $\vec{\sigma_A} \cdot \vec{\sigma_B}$, thank you, book. :(
+
+Now
+\begin{align*}
+\vec{\sigma_A} \cdot \vec{\sigma_B} \ket{\phi_1} &= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 2 & 0 \\
+0 & 2 & -1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+1 \\
+1 \\
+0
+\end{pmatrix} \\
+   &= 
+   \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+1 \\
+1 \\
+0
+\end{pmatrix} \\
+&= \ket{\phi_1},
+\end{align*}
+\begin{align*}
+\vec{\sigma_A} \cdot \vec{\sigma_B} \ket{\phi_2} &=
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 2 & 0 \\
+0 & 2 & -1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} 
+\begin{pmatrix}
+0 \\
+0 \\
+0 \\
+1
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+0 \\
+0 \\
+0 \\
+1 
+\end{pmatrix} \\
+&= \ket{\phi_2},
+\end{align*}
+\begin{align*}
+\vec{\sigma_A} \cdot \vec{\sigma_B} \ket{\phi_3} &= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 2 & 0 \\
+0 & 2 & -1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} 
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+0
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+0
+\end{pmatrix} \\
+&= \ket{\phi_3},
+\end{align*}
+\begin{align*}
+\vec{\sigma_A} \cdot \vec{\sigma_B} \ket{\phi_4} &= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 2 & 0 \\
+0 & 2 & -1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix}
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+1 \\
+-1 \\
+0
+\end{pmatrix}  \\
+&= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+-3 \\
+3 \\
+0
+\end{pmatrix} \\
+&= -3 \ket{\phi_4}.
+\end{align*}
+
+\section*{QCE 7,8}
+Is the state $X \otimes Z \ket{\beta_{00}}$ entangled?
+\begin{align*}
+X \otimes Z \ket{00} &= 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0 
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+1 & 0 \\
+0 & - 1
+\end{pmatrix}
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\ 0 \\ 0 \\ 1
+\end{pmatrix} \\
+&= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 & 0   & 1 & 0 \\
+0 & 0   & 0 & -1 \\
+1 & 0   & 0 & 0 \\
+0 & -1 & 0 & 0 
+\end{pmatrix}
+\begin{pmatrix}
+1 \\ 0 \\ 0 \\ 1
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\ -1 \\ 1 \\ 0
+\end{pmatrix} \\
+&= \frac{-\ket{01} + \ket{10}}{\sqrt{2}} \\
+&= -\ket{\beta_{11}},
+\end{align*}
+so the state is entangled but is not a Bell state.
+
+\section*{QCE 7.9}
+Find the Pauli representation of 
+\[
+\rho = \begin{pmatrix}
+\sin^2 \theta                             & e^{-i\phi} \sin \theta \cos \theta \\
+e^{i\phi} \sin \theta \cos \theta & \cos^2 \theta
+\end{pmatrix}.
+\]
+First we need to compute 
+\begin{align*}
+c_0 &= Tr(\rho \sigma_0) \\
+      &= Tr(\rho) \\
+      &= \sin^2 \theta + \cos^2 \theta \\
+      &= 1,
+\end{align*}
+\begin{align*}
+c_1 &= Tr(\rho \sigma_1) \\
+      &= Tr(\rho \sigma_x) \\
+      &= 
+      Tr \begin{pmatrix}
+          \sin^2 \theta                             & e^{-i\phi} \sin \theta \cos \theta \\
+          e^{i\phi} \sin \theta \cos \theta & \cos^2 \theta
+      \end{pmatrix}
+      \begin{pmatrix}
+      0 & 1 \\
+      1 & 0
+      \end{pmatrix} \\
+      &= Tr
+      \begin{pmatrix}
+      e^{-i\phi} \sin \theta \cos \theta & \sin^2 \theta \\
+      \cos^2 \theta & e^{i\phi} \sin \theta \cos \theta
+      \end{pmatrix} \\
+      &= 
+      e^{-i\phi} \sin \theta \cos \theta + e^{i\phi} \sin \theta \cos \theta \\ 
+      &=
+      (\sin \theta \cos \theta)(\cos \phi -i \sin \phi + \cos \phi + i \sin \phi) \\
+      &= 2 \sin \theta \cos \theta \cos \phi,
+\end{align*}
+\begin{align*}
+c_2 &= Tr(\rho \sigma_2) \\
+      &= Tr(\rho \sigma_y) \\
+      &= 
+      Tr \begin{pmatrix}
+          \sin^2 \theta                             & e^{-i\phi} \sin \theta \cos \theta \\
+          e^{i\phi} \sin \theta \cos \theta & \cos^2 \theta
+      \end{pmatrix}
+      \begin{pmatrix}
+      0 & -i \\
+      i & 0
+      \end{pmatrix} \\
+      &=  Tr 
+      \begin{pmatrix}
+      ie^{-i\phi} \sin \theta \cos \theta & -i\sin^2 \theta \\
+      i \cos^2 \theta & -ie^{i\phi} \sin \theta \cos \theta
+      \end{pmatrix} \\
+      &= ie^{-i\phi} \sin \theta \cos \theta - ie^{i\phi} \sin \theta \cos \theta \\
+      &= \sin \theta \cos \theta (ie^{-i\phi} - ie^{i\phi}) \\
+	  &= \sin \theta \cos \theta (i(\cos \phi - i \sin \phi) -i (\cos \phi + i \sin \phi)) \\
+	  &= \sin \theta \cos \theta ( i\cos \phi -i^2 \sin \phi - i\cos \phi - i^2 \sin \phi ) \\
+	  &= 2 \sin \theta \cos \theta \sin \phi.
+\end{align*}
+\begin{align*}
+c_3 &= Tr(\rho \sigma_3) \\
+      &= Tr(\rho \sigma_z) \\
+      &= Tr
+      \begin{pmatrix}
+          \sin^2 \theta                             & e^{-i\phi} \sin \theta \cos \theta \\
+          e^{i\phi} \sin \theta \cos \theta & \cos^2 \theta
+      \end{pmatrix}
+      \begin{pmatrix}
+      1 & 0 \\
+      0 & -1 
+      \end{pmatrix} \\
+      &= Tr
+      \begin{pmatrix}
+      \sin^2 \theta & -e^{-i\phi} \sin \theta \cos \theta \\
+      e^{i\phi} \sin \theta \cos \theta & -\cos^2 \theta
+      \end{pmatrix} \\
+      &= \sin^2 \theta - \cos^2 \theta.
+\end{align*}
+The Pauli representation for the system is
+\[
+\rho = \sum_{i = 0}^{3} Tr(\sigma_i) \sigma_i.
+\]
+
+\section*{QCE 7.10}
+Use (7.36) to show that $\ket{\beta_{10}}$ is entangled. Apply the same criterion to test $X \otimes Z\ket{\beta_{00}}$.
+
+Here we have
+\[
+\ket{\beta_{00}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}, \qquad
+\ket{\beta_{10}} = \frac{\ket{00} - \ket{11}}{\sqrt{2}}.
+\]
+The density operator for $\ket{\beta_{10}}$ is
+\[
+\rho = \frac{1}{2}(\ket{00} - \ket{11})(\bra{00} - \bra{11}) = \frac{1}{2} (\ket{00} \bra{00} - \ket{00} \bra{11} - \ket{11} \bra{00} + \ket{11} \bra{11}),
+\]
+and its density matrix is
+\[
+\frac{1}{2} \begin{pmatrix}
+1  & 0  & 0 & -1 \\
+0  & 0  & 0 & 0 \\
+0  & 0  & 0 & 0 \\
+-1 & 0 & 0 & 1
+\end{pmatrix}.
+\]
+Next we find
+\begin{align*}
+c_{11} &= Tr(\rho X \otimes X) = Tr \frac{1}{2} 
+\begin{pmatrix}
+1 & 0 & 0 & -1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 1 
+\end{pmatrix}
+\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix} \\
+&=
+\frac{1}{2} Tr
+\begin{pmatrix}
+-1 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+1 & 0 & 0 & -1 
+\end{pmatrix} \\
+&= -1
+\end{align*}
+\begin{align*}
+c_{22} &= Tr(\rho Y \otimes Y) = Tr \frac{1}{2} 
+\begin{pmatrix}
+1 & 0 & 0 & -1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 1 
+\end{pmatrix}
+\begin{pmatrix}
+0 & 0 & 0 & -1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+-1 & 0 & 0 & 0 
+\end{pmatrix} \\
+&=
+\frac{1}{2} Tr
+\begin{pmatrix}
+1 & 0 & 0 & -1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 1 
+\end{pmatrix} \\
+&= 1
+\end{align*}
+\begin{align*}
+c_{33} &= Tr(\rho Z \otimes Z) = 
+Tr \frac{1}{2} 
+\begin{pmatrix}
+1 & 0 & 0 & -1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 1 
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & 1 
+\end{pmatrix} \\
+&=
+\frac{1}{2} Tr
+\begin{pmatrix}
+1 & 0 & 0 & -1 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+-1 & 0 & 0 & 1 
+\end{pmatrix} \\
+&= 1.
+\end{align*}
+Now we see that $|c_{11}| + |c_{22}| + |c_{33}| = 3$, so the state is entangled.
+
+\begin{align*}
+X \otimes Z \ket{\beta_{00}} &= 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+1 & 0 \\
+0 & -1 
+\end{pmatrix}
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\ 0 \\ 0 \\ 1
+\end{pmatrix} \\
+&= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1 \\
+1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 \\ 0 \\ 0 \\ 1
+\end{pmatrix} \\
+&= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\ -1 \\ 1 \\ 0
+\end{pmatrix} \\
+&= \frac{-\ket{01} + \ket{10}}{\sqrt{2}}.
+\end{align*}
+Now the density operator/matrix for the above state is 
+\begin{align*}
+\rho &= \frac{1}{2} (-\ket{01} + \ket{10}) (-\bra{01} + \bra{10}) \\
+        &= \frac{1}{2} ( \ket{01} \bra{01} - \ket{01} \bra{10} - \ket{10} \bra{01} + \ket{10} \bra{10} ) \\
+        &= 
+	    \frac{1}{2}        
+        \begin{pmatrix}
+        0 & 0   & 0   & 0 \\
+        0 & 1   & -1 & 0 \\
+        0 & -1 & 1   & 0 \\
+        0 & 0   & 0   & 0 
+        \end{pmatrix}.
+\end{align*}
+Next we find
+\begin{align*}
+c_{11} &= Tr (\rho X \otimes X) = \frac{1}{2} Tr 
+\begin{pmatrix}
+        0 & 0   & 0   & 0 \\
+        0 & 1   & -1 & 0 \\
+        0 & -1 & 1   & 0 \\
+        0 & 0   & 0   & 0 
+\end{pmatrix}
+\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix} \\
+&= \frac{1}{2} Tr 
+\begin{pmatrix}
+0 & 0 & 0 & 0 \\
+0 & -1 & 1 & 0 \\
+0 & 1 & -1 & 0 \\
+0 & 0 & 0 & 0 
+\end{pmatrix} = -1,
+\end{align*}
+\begin{align*}
+c_{22} &= Tr (\rho Y \otimes Y) = \frac{1}{2} Tr 
+\begin{pmatrix}
+        0 & 0   & 0   & 0 \\
+        0 & 1   & -1 & 0 \\
+        0 & -1 & 1   & 0 \\
+        0 & 0   & 0   & 0 
+\end{pmatrix}
+\begin{pmatrix}
+0 & 0 & 0 & -1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+-1 & 0 & 0 & 0 
+\end{pmatrix} \\
+&= \frac{1}{2} Tr 
+\begin{pmatrix}
+0 & 0 & 0 & 0 \\
+0 & -1 & 1 & 0 \\
+0 & 1 & -1 & 0 \\
+0 & 0 & 0 & 0 
+\end{pmatrix} = -1,
+\end{align*}
+\begin{align*}
+c_{33} &= Tr (\rho Z \otimes Z) = \frac{1}{2} Tr 
+\begin{pmatrix}
+        0 & 0   & 0   & 0 \\
+        0 & 1   & -1 & 0 \\
+        0 & -1 & 1   & 0 \\
+        0 & 0   & 0   & 0 
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & 1 
+\end{pmatrix} \\
+&= \frac{1}{2} Tr 
+\begin{pmatrix}
+0 & 0 & 0 & 0 \\
+0 & -1 & 1 & 0 \\
+0 & 1 & -1 & 0 \\
+0 & 0 & 0 & 0 
+\end{pmatrix} = -1.
+\end{align*}
+Once again we have $|c_{11}| + |c_{22}| + |c_{33}| = 3$ so this state is entangled as well.
+
+\section*{QCE 7.11}
+Derive 
+\[
+\ket{\beta_{00}} \bra{\beta_{00}} = \frac{1}{4} (I \otimes I + X \otimes X - Y \otimes Y + Z \otimes Z).
+\]
+We have that 
+\[
+\ket{\beta_{00}} = \frac{\ket{00} + \ket{11}}{\sqrt{2}},
+\]
+so
+\begin{align*}
+\ket{\beta_{00}} \bra{\beta_{00}} &= \frac{1}{2} (\ket{00} + \ket{11})(\bra{00} + \bra{11}) \\
+		&= \frac{1}{2} (\ket{00} \bra{00} + \ket{00} \bra{11} + \ket{11} \bra{00} + \ket{11} \bra{11}) \\
+		&= \frac{1}{2}
+		\begin{pmatrix}
+		1 & 0 & 0 & 1 \\
+		0 & 0 & 0 & 0 \\
+		0 & 0 & 0 & 0 \\
+		1 & 0 & 0 & 1 
+		\end{pmatrix}.
+\end{align*}
+Now
+\begin{align*}
+I \otimes I + X \otimes X - Y \otimes Y + Z \otimes Z &=
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1 
+\end{pmatrix} 
++
+\begin{pmatrix}
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 0 & 0 
+\end{pmatrix} \\
+&- 
+\begin{pmatrix}
+0 & 0 & 0 & - 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+-1 & 0 & 0 & 0 
+\end{pmatrix}
++ 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & -1 & 0 & 0 \\
+0 & 0 & -1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 & 0 & 0 & 1 \\
+0 & 1 & 1 & 0 \\
+0 & 1 & 1 & 0 \\
+1 & 0 & 0 & 1 
+\end{pmatrix}
++
+\begin{pmatrix}
+1 & 0 & 0 & 1 \\
+0 & -1 & -1 & 0 \\
+0 & -1 & -1 & 0 \\
+1 & 0 & 0 & 1 
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+2 & 0 & 0 & 2 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+2 & 0 & 0 & 2 
+\end{pmatrix} \\
+&= 4\ket{\beta_{00}} \bra{\beta_{00}},
+\end{align*}
+which yields the desired result.
+
+\section*{QCE 7.12}
+Can the following state be written in diagonal form in terms of the Bell basis?
+\[
+\rho = \begin{pmatrix}
+\frac{1}{2} & 0 & 0 & -\frac{1}{8} \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+-\frac{1}{8} & 0 & 0 & \frac{1}{2} 
+\end{pmatrix}
+\]
+Using (7.43), determine if this state is a separable state. 
+
+Now
+\begin{align*}
+\rho &= \frac{1}{2} \Bigg( \ket{00}\bra{00} + \ket{11} \bra{11} \Bigg) - \frac{1}{8} \Bigg( \ket{00} \bra{11} + \ket{11} \bra{00} \Bigg) \\
+        &= \frac{1}{2} \Bigg( \ket{\beta_{00}} \bra{\beta_{00}} + \ket{\beta_{10}} \bra{\beta_{10}} \Bigg) - \frac{1}{8} \Bigg( \ket{\beta_{00}} \bra{\beta_{00}} - \ket{\beta_{10}} \bra{\beta_{10}} \Bigg) \\
+        &= \frac{3}{8} \Bigg( \ket{\beta_{00}} \bra{\beta_{00}} \Bigg) + \frac{5}{8} \Bigg( \ket{\beta_{10}} \bra{\beta_{10}} \Bigg).
+\end{align*}
+Since $c_{00} = \frac{3}{8} \leq \frac{1}{2}$, this state is separable.
+
+\section*{QCE 7.13}
+Verify that 
+\[
+\ket{\psi} = \Bigg( \frac{\ket{0} - \ket{1}}{\sqrt{2}}\Bigg) \otimes \Bigg( \frac{\ket{0} - \ket{1}}{\sqrt{2}}\Bigg) 
+\]
+is a product state using (7.36).
+
+A product state is also called separable. Now 
+\begin{align*}
+\ket{\psi} &= \Bigg( \frac{\ket{0} - \ket{1}}{\sqrt{2}}\Bigg) \otimes \Bigg( \frac{\ket{0} - \ket{1}}{\sqrt{2}}\Bigg) \\
+                &= \frac{1}{2} (\ket{00} - \ket{01} - \ket{10} + \ket{11}).
+\end{align*}
+Now
+\begin{align*}
+\rho &= \ket{\psi} \bra{\psi} \\
+        &= \frac{1}{4}  (\ket{00} - \ket{01} - \ket{10} + \ket{11})  (\bra{00} - \bra{01} - \bra{10} + \bra{11}) \\
+        &= \frac{1}{4} \Bigg( \ket{00} \bra{00} - \ket{00} \bra{01} -\ket{00} \bra{10} + \ket{00} \bra{11} \\
+        &- \ket{01} \bra{00} + \ket{01} \bra{01} + \ket{01} \bra{10} - \ket{01} \bra{11} \\
+        &- \ket{10} \bra{00} + \ket{10} \bra{01} + \ket{10} \bra{10} - \ket{10} \bra{11} \\
+        &+ \ket{11} \bra{00} - \ket{11} \bra{01} - \ket{11} \bra{10} + \ket{11} \bra{11} \Bigg) \\
+        &=
+        \frac{1}{4} 
+        \begin{pmatrix}
+        1 & -1 & -1 & 1 \\
+        -1 & 1 & 1 & -1 \\
+        -1 & 1 & 1 & -1 \\
+        1 & -1 & -1 & 1
+        \end{pmatrix}.
+\end{align*}
+The first term is
+\begin{align*}
+c_{11} &= Tr(\rho X \otimes X) \\
+          &= \frac{1}{4} Tr
+        \begin{pmatrix}
+        1 & -1 & -1 & 1 \\
+        -1 & 1 & 1 & -1 \\
+        -1 & 1 & 1 & -1 \\
+        1 & -1 & -1 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 1 & 0 \\
+        0 & 1 & 0 & 0 \\
+        1 & 0 & 0 & 0 \\
+        \end{pmatrix} \\
+        &= 
+        \frac{1}{4} Tr
+        \begin{pmatrix}
+        1 & -1 & -1 & 1 \\
+        -1 & 1 & 1 & -1 \\
+        -1 & 1 & 1 & -1 \\
+        1 & -1 & -1 & 1
+        \end{pmatrix} \\
+        &= 1.
+\end{align*}
+\begin{align*}
+c_{22} &= Tr(\rho Y \otimes Y) \\
+          &= \frac{1}{4} Tr
+        \begin{pmatrix}
+        1 & -1 & -1 & 1 \\
+        -1 & 1 & 1 & -1 \\
+        -1 & 1 & 1 & -1 \\
+        1 & -1 & -1 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+        0   & 0 & 0 & -1 \\
+        0   & 0 & 1 & 0 \\
+        0   & 1 & 0 & 0 \\
+        -1 & 0 & 0 & 0 \\
+        \end{pmatrix} \\
+        &= \frac{1}{4} Tr
+        \begin{pmatrix}
+        -1 & -1 & -1 & -1 \\
+        1 & 1 & 1 & 1 \\
+        1 & 1 & 1 & 1 \\
+        -1 & -1 & -1 & -1
+        \end{pmatrix} \\
+        &= 0,
+\end{align*}
+\begin{align*}
+c_{33} &= Tr(\rho Z \otimes Z) \\
+          &= \frac{1}{4} Tr
+        \begin{pmatrix}
+        1 & -1 & -1 & 1 \\
+        -1 & 1 & 1 & -1 \\
+        -1 & 1 & 1 & -1 \\
+        1 & -1 & -1 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+        1 & 0   & 0   & 0 \\
+        0 & -1 & 0   & 0 \\
+        0 & 0   & -1 & 0 \\
+        0 & 0   & 0   & 1 \\
+        \end{pmatrix} \\
+        &= \frac{1}{4} Tr
+        \begin{pmatrix}
+        1 & 1 & 1 & 1 \\
+        -1 & -1 & -1 & -1 \\
+        -1 & -1 & -1 & -1 \\
+        1 & 1 & 1 & 1 
+        \end{pmatrix} \\
+        &= 0.
+\end{align*}
+As $|c_{11}| + |c_{22}| + |c_{33}| = 1 \leq 1$, it is a product state in question.
+
+\section*{QCE 7.14}
+Verify that the state
+\[
+\ket{\psi} = \frac{1}{\sqrt{2}} \ket{\beta_{00}} - \frac{1}{\sqrt{2}} \ket{\beta_{01}}
+\]
+is entangled by calculating the Schmidt number.
+
+First, let us rewrite the state:
+\begin{align*}
+\ket{\psi} &= \frac{1}{\sqrt{2}} \ket{\beta_{00}} - \frac{1}{\sqrt{2}} \ket{\beta_{01}} \\
+                &= \frac{1}{2} (\ket{00} + \ket{11}) - \frac{1}{2} (\ket{01} + \ket{10}) \\
+                &= \frac{1}{2} (\ket{00} - \ket{01} - \ket{10} + \ket{11}).
+\end{align*}
+Now
+\begin{align*}
+\rho &= \ket{\psi} \bra{\psi} \\
+        &= \frac{1}{4} \Bigg( \ket{00} - \ket{01} - \ket{10} + \ket{11} \Bigg) \Bigg( \bra{00} - \bra{01} - \bra{10} + \bra{11} \Bigg) \\
+        &= \frac{1}{4} \Bigg( \ket{00} \bra{00} -  \ket{00} \bra{01} - \ket{00} \bra{10} +  \ket{00} \bra{11} \\
+        &-  \ket{01} \bra{00} +  \ket{01} \bra{01} +  \ket{01} \bra{10} - \ket{01} \bra{11} \\ 
+        &-  \ket{10} \bra{00} +  \ket{10} \bra{01} +  \ket{10} \bra{10} -  \ket{10} \bra{11} \\
+        &+  \ket{11} \bra{00} -  \ket{11} \bra{01} - \ket{11} \bra{10} +  \ket{11} \bra{11} \Bigg) \\
+        &= 
+        \frac{1}{4}
+        \begin{pmatrix}
+        1 & -1 & -1 & 1 \\
+        -1 & 1 & 1 & -1 \\
+        -1 & 1 & 1 & -1 \\
+        1 & -1 & -1 & 1
+        \end{pmatrix}.
+\end{align*}
+Now
+\begin{align*}
+\rho' &= Tr(\ket{\psi} \bra{\psi}) \\
+         &= \braket{0|\psi} \braket{\psi|0} + \braket{1|\psi} \braket{\psi|1} \\
+         &= \frac{1}{4} ( \ket{0} \bra{0} - \ket{0} \bra{1} - \ket{1} \bra{0} +\ket{1} \bra{1} ) \\
+         &+ \frac{1}{4} ( \ket{0} \bra{0} - \ket{0} \bra{1} - \ket{1} \bra{0} + \ket{1} \bra{1} ) \\
+         &= \frac{1}{2} (\ket{0} \bra{0} - \ket{0} \bra{1} - \ket{1} \bra{0} + \ket{1} \bra{1}) \\
+         &= 
+         \frac{1}{2}
+         \begin{pmatrix}
+         1 & - 1 \\
+         -1 & 1 
+         \end{pmatrix}.
+\end{align*}
+On page 169 of the book, it is told that the above matrix has eigenvalues $\lambda_1 = 1, \lambda_2 = 0$, so the Schmidt number is one and this is a separable state.
+
+\section*{QCE 8.1}
+Describe the action of the Y gate in terms of the Bloch sphere picture.
+
+We have 
+\[
+\ket{\psi} = \cos \theta \ket{0} + e^{i\phi} \sin \theta \ket{1} = 
+\begin{pmatrix}
+\cos \theta \\
+e^{i\phi} \sin \theta
+\end{pmatrix},
+ \qquad Y =
+\begin{pmatrix}
+0 & -i \\
+i  & 0
+\end{pmatrix}.
+\]
+Now
+\begin{align*}
+Y\ket{\psi} &= 
+\begin{pmatrix}
+0 & -i \\
+i  & 0
+\end{pmatrix}
+\begin{pmatrix}
+\cos \theta \\
+e^{i\phi} \sin \theta
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+-ie^{i\phi} \sin \theta \\
+i \cos \theta
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+-i ( \cos \phi + i \sin \phi ) \sin \theta \\
+i \cos \theta
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+-i \cos \phi \sin \theta + \sin \phi \sin \theta \\
+i \cos \theta
+\end{pmatrix}
+\end{align*}
+
+\section*{QCE 8.2}
+\[
+X^{11} =
+\begin{pmatrix}
+1 & 0 \\
+0 & 0
+\end{pmatrix},
+\qquad
+X^{12} =
+\begin{pmatrix}
+0 & 1 \\
+0 & 0
+\end{pmatrix},
+\qquad
+X^{21} =
+\begin{pmatrix}
+0 & 0 \\
+1 & 0
+\end{pmatrix},
+\qquad
+X^{22} =
+\begin{pmatrix}
+0 & 0 \\
+0 & 1
+\end{pmatrix}.
+\]
+The Hadamard basis is
+\[
+\ket{+} = 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+1
+\end{pmatrix}, \qquad
+\ket{-} = 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+-1
+\end{pmatrix}, 
+\]
+so
+\[
+X^{11} \ket{+} =
+\frac{1}{\sqrt{2}} \ket{0}, \;
+X^{12} \ket{+} =
+\frac{1}{\sqrt{2}} \ket{0}, \;
+X^{21} \ket{+} =
+\frac{1}{\sqrt{2}} \ket{1}, \;
+X^{22} \ket{+} =
+\frac{1}{\sqrt{2}} \ket{1},
+\]
+and
+\[
+X^{11} \ket{-} =
+\frac{1}{\sqrt{2}} \ket{0}, \;
+X^{12} \ket{-} =
+- \frac{1}{\sqrt{2}} \ket{0}, \;
+X^{21} \ket{-} =
+\frac{1}{\sqrt{2}} \ket{1}, \;
+X^{22} \ket{-} =
+-\frac{1}{\sqrt{2}} \ket{1}.
+\]
+
+\section*{QCE 8.3}
+Find a way to write the Pauli operators X, Y and Z in terms of the Hubbard operators.
+
+This is a basic matrix shit:
+\begin{align*}
+X &=
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix}
+= X^{12} + X^{21}, \\
+Y &= \begin{pmatrix}
+0 & -i \\
+i  & 0 
+\end{pmatrix}
+= -i X^{12} + i X^{21} = i(X^{21} - X^{12}), \\
+Z &= \begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix} 
+= X^{11} - X^{22}.
+\end{align*}
+
+\section*{QCE 8.4}
+Show that the controlled NOT gate is Hermitian and unitary.
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}
+= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}^{\dag},
+\]
+so the matrix is Hermitian. Also
+\begin{align*}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}
+= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 1
+\end{pmatrix},
+\end{align*}
+so the matrix is unitary.
+
+\section*{QCE 8.5}
+Let $\ket{a} = \ket{1}$, and consider the circuit shown in Figure 8.5. Determine which Bell states are generated as output when $\ket{b} = \ket{0}$, $\ket{b} = \ket{1}$.
+
+The Hadamard gate converts $\ket{a} = \ket{1}$ to $\ket{-} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1})$. Also the matrix representation of CNOT is
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}.
+\]
+For the first case, we have $\ket{b} = \ket{0}$, so the input qubit is 
+\[
+\ket{a} \ket{b} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1})\ket{0} = \frac{1}{\sqrt{2}} (\ket{00} - \ket{10} = 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+0 \\
+-1 \\
+0
+\end{pmatrix},
+\]
+and
+\begin{align*}
+CNOT \ket{ab} &= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 \\
+0 \\
+-1 \\
+0
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+-1
+\end{pmatrix} \\
+&= \ket{\beta_{10}}.
+\end{align*}
+For the second case, we have $\ket{b} = \ket{1}$, so the input qubit is 
+\[
+\ket{a} \ket{b} = \frac{1}{\sqrt{2}} (\ket{0} - \ket{1})\ket{1} = \frac{1}{\sqrt{2}} (\ket{01} - \ket{11} = 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+1 \\
+0 \\
+-1
+\end{pmatrix},
+\]
+and
+\begin{align*}
+CNOT \ket{ab} &= 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+0 \\
+1 \\
+0 \\
+-1
+\end{pmatrix} \\
+&= \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+0 \\
+1 \\
+-1 \\
+0
+\end{pmatrix} \\
+&= \ket{\beta_{11}}.
+\end{align*}
+
+\section*{QCE 8.6}
+Write down the matrix representation for the controlled Z gate. Then write down its representation using Dirac notation.
+
+The matrix representation is
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & -1 \\
+\end{pmatrix},
+\]
+and in Dirac notation this is $\ket{00} \bra{00} + \ket{01} \bra{01}  + \ket{10} \bra{10} - \ket{11} \bra{11}$.
+
+\section*{QCE 8.7}
+\begin{align*}
+X^2 &= 
+\begin{pmatrix}
+0 & 1 \\
+1 & 0 
+\end{pmatrix}
+\begin{pmatrix}
+0 & 1 \\
+1 & 0 
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix} \\
+&= I,
+\end{align*}
+\begin{align*}
+Y^2 &= 
+\begin{pmatrix}
+0 & -i \\
+i  & 0
+\end{pmatrix}
+\begin{pmatrix}
+0 & -i \\
+i  & 0
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix} \\
+&= I,
+\end{align*}
+\begin{align*}
+Z^2 &= 
+\begin{pmatrix}
+1 &  0 \\
+0  & -1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix} \\
+&= I,
+\end{align*}
+\begin{align*}
+S^2 &= 
+\begin{pmatrix}
+1 &  0 \\
+0  & i
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 \\
+0 & i
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & -1
+\end{pmatrix} \\
+&= Z,
+\end{align*}
+\begin{align*}
+T^2 &= 
+\begin{pmatrix}
+1 &  0 \\
+0  & e^{i\pi / 4}
+\end{pmatrix}
+\begin{pmatrix}
+1 &  0 \\
+0  & e^{i\pi / 4}
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & e^{i\pi / 4} e^{i\pi / 4}
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & e^{2i\pi / 4}
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & e^{i\pi / 2}
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & \cos \frac{\pi}{2} + i \sin \frac{\pi}{2}
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 \\
+0 & i
+\end{pmatrix} \\
+&= S.
+\end{align*}
+
+\section*{QCE 8.10}
+By using the tensor product methods developed in chapter 4, show that the controlled-NOT matrix can be generated from $P_0 \otimes I + P_1 \otimes X$.
+
+\begin{align*}
+P_0 \otimes I + P_1 \otimes X &= 
+\begin{pmatrix}
+1 & 0 \\
+0 & 0
+\end{pmatrix}
+\otimes 
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}
++ 
+\begin{pmatrix}
+0 & 0 \\
+0 & 1
+\end{pmatrix}
+\otimes
+\begin{pmatrix}
+0 & 1 \\
+1 & 0
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 
+\end{pmatrix}
++
+\begin{pmatrix}
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 
+\end{pmatrix} \\
+&= CNOT.
+\end{align*}
+
+\section*{QCE 8.11}
+The operator matrix of the left circuit is that of CNOT:
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}.
+\]
+The two ``parallel'' Hadamard gates may be represented as
+\[
+H^{\otimes 2} = 
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 & 1   & 1   & 1 \\
+1 & -1 & 1   & -1 \\
+1 & 1   & -1 & -1 \\
+1 & -1 & -1 & 1 \\
+\end{pmatrix},
+\]
+so
+\begin{align*}
+H^{\otimes 2} \times CNOT \times H^{\otimes 2} &= 
+\frac{1}{4}
+\begin{pmatrix}
+1 & 1   & 1   & 1 \\
+1 & -1 & 1   & -1 \\
+1 & 1   & -1 & -1 \\
+1 & -1 & -1 & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1   & 1   & 1 \\
+1 & -1 & 1   & -1 \\
+1 & 1   & -1 & -1 \\
+1 & -1 & -1 & 1 \\
+\end{pmatrix} \\
+&= 
+\frac{1}{4}
+\begin{pmatrix}
+4 & 0 & 0 & 0 \\
+0 & 4 & 0 & 0 \\
+0 & 0 & 0 & 4 \\
+0 & 0 & 4 & 0
+\end{pmatrix} \\
+&= CNOT.
+\end{align*}
+
+\section*{QCE 8.12}
+\begin{align*}
+V &= (1 - i) \frac{I + iX}{2} \\
+   &= \frac{(1 - i)}{2} 
+\Bigg( 
+\begin{pmatrix}
+ 1 & 0 \\
+ 0 & 1  
+\end{pmatrix}    
++
+\begin{pmatrix}
+0 & i \\
+i & 0
+\end{pmatrix}
+\Bigg) \\
+&= 
+\frac{(1-i)}{2} 
+\begin{pmatrix}
+1 & i \\
+i & 1
+\end{pmatrix} \\
+&= 
+\frac{1}{2}
+\begin{pmatrix}
+1 - i & 1 + i \\
+1 + i & 1 - i
+\end{pmatrix}
+\end{align*}
+Now, the conditional $CV$ gate is 
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 - i & 1 + i \\
+0 & 0 & 1 + i & 1 - i 
+\end{pmatrix},
+\]
+and the conditional $CV^{\dag}$ is
+\[
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 + i & 1 - i \\
+0 & 0 & 1 - i & 1 + i 
+\end{pmatrix}.
+\]
+Now the entire circuit can be represented as
+\[
+(I \otimes CV)(CNOT \otimes I)(I \otimes CV^{\dag})(CNOT \otimes I)(I \otimes CV).
+\]
+\begin{align*}
+I \otimes CV &= 
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}
+\otimes 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 - i & 1 + i \\
+0 & 0 & 1 + i & 1 - i 
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 - i & 1 + i & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 + i & 1 - i & 0 & 0 & 0 & 0 \\
+\hline
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1-i & 1+i \\
+0 & 0 & 0 & 0 & 0 & 0 & 1+i & 1-i
+\end{pmatrix}.
+\end{align*}
+\begin{align*}
+CNOT \otimes I 
+&= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 \\
+0 & 1 \\
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+\hline 
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ 
+\end{pmatrix}.
+\end{align*}
+\begin{align*}
+I \otimes CV^{\dag} &= 
+\begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix}
+\otimes 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 +i & 1 - i \\
+0 & 0 & 1 - i & 1 + i 
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 + i & 1 - i & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 - i & 1 + i & 0 & 0 & 0 & 0 \\
+\hline
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1+i & 1-i \\
+0 & 0 & 0 & 0 & 0 & 0 & 1-i & 1+i
+\end{pmatrix}.
+\end{align*}
+Now
+\begin{align*}
+(I \otimes CV)(CNOT \otimes I)
+&= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 - i & 1 + i & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 + i & 1 - i & 0 & 0 & 0 & 0 \\
+\hline
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1-i & 1+i \\
+0 & 0 & 0 & 0 & 0 & 0 & 1+i & 1-i
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+\hline 
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ 
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 & 0 & 0      & 0    & 0   & 0    & 0 & 0 \\
+0 & 1 & 0      & 0    & 0   & 0    & 0 & 0 \\
+0 & 0 & 1 - i & 1+i & 0    & 0    & 0 & 0 \\
+0 & 0 & 1+i  & 1-i  & 0    & 0    & 0 & 0 \\
+0 & 0 & 0      & 0    & 0    & 0    & 1 & 0 \\
+0 & 0 & 0      & 0    & 0    & 0    & 0 & 1 \\
+0 & 0 & 0      & 0    & 1-i & 1+i & 0 & 0 \\
+0 & 0 & 0      & 0    & 1+i & 1-i & 0 & 0 
+\end{pmatrix}
+\end{align*}
+\begin{align*}
+(CNOT \otimes I)(I \otimes CV)
+&= 
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+\hline 
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ 
+\end{pmatrix} 
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 - i & 1 + i & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 + i & 1 - i & 0 & 0 & 0 & 0 \\
+\hline
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1-i & 1+i \\
+0 & 0 & 0 & 0 & 0 & 0 & 1+i & 1-i
+\end{pmatrix} \\
+&= 
+\begin{pmatrix}
+1 & 0 & 0      & 0    & 0 & 0 & 0   & 0 \\
+0 & 1 & 0      & 0    & 0 & 0 & 0   & 0 \\
+0 & 0 & 1 - i & 1+i & 0 & 0 & 0   & 0 \\
+0 & 0 & 1 +i & 1-i  & 0 & 0 & 0   & 0 \\
+0 & 0 & 0     & 0     & 0 & 0 & 1-i & 1+ i \\
+0 & 0 & 0     & 0     & 0 & 0 & 1+i & 1-i \\
+0 & 0 & 0     & 0     & 1 & 0 & 0    & 0 \\
+0 & 0 & 0     & 0     & 0 & 1 & 0    & 0 
+\end{pmatrix}.
+\end{align*}
+\begin{align*}
+(I \otimes CV)(CNOT \otimes I)(I \otimes CV^{\dag}) = \\ 
+\begin{pmatrix}
+1 & 0 & 0      & 0    & 0   & 0    & 0 & 0 \\
+0 & 1 & 0      & 0    & 0   & 0    & 0 & 0 \\
+0 & 0 & 1 - i & 0    & 0    & 0    & 0 & 0 \\
+0 & 0 & 0      & 1-i & 0    & 0    & 0 & 0 \\
+0 & 0 & 0      & 0    & 0    & 0    & 1 & 0 \\
+0 & 0 & 0      & 0    & 0    & 0    & 0 & 1 \\
+0 & 0 & 0      & 0    & 1-i & 1+i & 0 & 0 \\
+0 & 0 & 0      & 0    & 1+i & 1-i & 0 & 0 
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 + i & 1 - i & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 - i & 1 + i & 0 & 0 & 0 & 0 \\
+\hline
+0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1+i & 1-i \\
+0 & 0 & 0 & 0 & 0 & 0 & 1-i & 1+i
+\end{pmatrix} \\
+=
+\begin{pmatrix}
+1 & 0 & 0    & 0      & 0    & 0 & 0     & 0 \\
+0 & 1 & 0    & 0      & 0    & 0 & 0     & 0 \\
+0 & 0 & 2    & -2i    & 0    & 0 & 0     & 0 \\
+0 & 0 & -2i & 2       & 0    & 0 & 0     & 0 \\
+0 & 0 & 0    & 0       & 0    & 0 & 1+i & 1-i \\
+0 & 0 & 0    & 0       & 0    & 0 & 1-i  & 1+ i \\
+0 & 0 & 0    & 0       & 1-i & 1+i & 0 & 0 \\
+0 & 0 & 0    & 0       & 1+i & 1-i & 0 & 0 
+\end{pmatrix}.
+\end{align*}
+Finally,
+\begin{align*}
+(I \otimes CV)(CNOT \otimes I)(I \otimes CV^{\dag})(CNOT \otimes I)(I \otimes CV) \\
+=
+\begin{pmatrix}
+1 & 0 & 0    & 0      & 0    & 0 & 0     & 0 \\
+0 & 1 & 0    & 0      & 0    & 0 & 0     & 0 \\
+0 & 0 & 2    & -2i    & 0    & 0 & 0     & 0 \\
+0 & 0 & -2i & 2       & 0    & 0 & 0     & 0 \\
+0 & 0 & 0    & 0       & 0    & 0 & 1+i & 1-i \\
+0 & 0 & 0    & 0       & 0    & 0 & 1-i  & 1+ i \\
+0 & 0 & 0    & 0       & 1-i & 1+i & 0 & 0 \\
+0 & 0 & 0    & 0       & 1+i & 1-i & 0 & 0 
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0 & 0      & 0    & 0 & 0 & 0   & 0 \\
+0 & 1 & 0      & 0    & 0 & 0 & 0   & 0 \\
+0 & 0 & 1 - i & 1+i & 0 & 0 & 0   & 0 \\
+0 & 0 & 1 +i & 1-i  & 0 & 0 & 0   & 0 \\
+0 & 0 & 0     & 0     & 0 & 0 & 1-i & 1+ i \\
+0 & 0 & 0     & 0     & 0 & 0 & 1+i & 1-i \\
+0 & 0 & 0     & 0     & 1 & 0 & 0    & 0 \\
+0 & 0 & 0     & 0     & 0 & 1 & 0    & 0 
+\end{pmatrix} =\\
+\begin{pmatrix}
+1 & 0 & 0                        & 0                      & 0    & 0    & 0 & 0 \\
+0 & 1 & 0                        & 0                      & 0    & 0    & 0 & 0 \\
+0 & 0 & 2(1-i) -2i(1+i)    & 2(1+i) -2i(1-i)  & 0    & 0    & 0 & 0 \\
+0 & 0 & -2i(1-i) +2(1+i) & -2i(1+i)+2(1-i) & 0    & 0    & 0 & 0 \\
+0 & 0 & 0                        & 0                      & 1+i & 1-i & 0 & 0 \\
+0 & 0 & 0                        & 0                      & 1-i & 1+i & 0 & 0 \\
+0 & 0 & 0      			       & 0                      & 0    & 0    & (1-i)^2 + (1+i)^2 & 2(1-i)(1+i) \\
+0 & 0 & 0  					   & 0 				   	   & 0    & 0    & 2(1+i)(1-i)   & (1+i)^2 + (1-i)^2 \\
+\end{pmatrix} \\
+= 
+\begin{pmatrix}
+1 & 0 & 0 & 0   & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0   & 0 & 0 & 0 & 0 \\ 2-2i - 2i +2 = 4 - 4i
+0 & 0 & 4(1 -i) & 0 & 0 & 0 & 0 & 0 \\
+\end{pmatrix}
+\end{align*}
+\section*{Problems not solved}
+\begin{itemize}
+\item QCE 7.1 
+\item (Ask about QCE 7.9)
+\item (Ask about QCE 7.14)
+\item (Ask about QCE 8.1)
+\item QCE 8.12
+\end{itemize}
+
+\end{document}
