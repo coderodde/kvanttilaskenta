@@ -194,6 +194,11 @@ so the result state is
 \]
  The probability of measuring $\ket{0}$ or $\ket{3}$ is $\frac{1}{2}$ each, and other probabilities are zero.
  
+\section*{edx Problem 6}
+\[
+\beta'_j = \omega^j \beta_j.
+\] 
+ 
 \section*{edx Problem 7}
 Consider the periodic superposition $\ket{a} = \sqrt{\frac{k}{M}} \sum_{j = 0}^{M/k - 1} \ket{jk}$. Let $\beta = \sum_j \beta_j \ket{j}$ be its $QFT_M$.
 
@@ -218,6 +223,30 @@ Consider the periodic superposition $\ket{a} = \sqrt{\frac{k}{M}} \sum_{j = 0}^{
 &= \frac{\sqrt{k}}{M} \sum_{l = 0}^{M/k - 1} e^{2 i \pi l k r / M} \\
 &= 
 \end{align*}
+
+\section*{edx Problem 8}
+\[
+\ket{\beta} = \sqrt{\frac{k}{M}} \sum_{l = 0}^{M/k - 1} e^{2 \pi l i/ M} \ket{lk + 1}
+\]
+
+\section*{edx Problem 9}
+(a) $f(j) = 2^j \text{ mod } 21$, so
+\begin{itemize}
+\item $f(0) = 1$, 
+\item $f(1) = 2$,
+\item $f(2) = 4$,
+\item $f(3) = 8$,
+\item $f(4) = 16$,
+\item $f(5) = 11$,
+\item $f(6) = 1$,
+\end{itemize}
+and the period is $k = 6$.
+
+(b) $a = 2^{k/2} = 2^3 = 8$. $a^2 = 64 = 1 \text{ mod } 21$. On the other hand $a \pm 1$ are not $1 \text{ mod } 21$.
+
+(c) $\text{gcd}(21, 9) = 3$.
+\section*{edx Problem 10}
+The answer: If Alice now applies $QFT_{2^n}$ and measure, she will still get $k$ with probability $99\%$.
 
 \section*{QCE 7.1}
 \[
