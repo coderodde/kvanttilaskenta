@@ -1,0 +1,120 @@
+\documentclass[10pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[ruled,linesnumbered,noend]{algorithm2e}
+\usepackage{empheq}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{gensymb}
+
+\title{Kvanttilaskenta, kevät 2015 -- Viikko 6}
+\author{Rodion ``rodde'' Efremov}
+
+\begin{document}
+ \maketitle
+ 
+ \section*{edx Problem 1}
+ \[
+ \ket{\psi} = \alpha \ket{0} + \beta \ket{1} 
+ = 
+ \begin{pmatrix}
+ \alpha \\
+ \beta
+ \end{pmatrix}.
+ \]
+ \[
+ \ket{-} = 
+ \begin{pmatrix}
+\frac{1}{\sqrt{2}} \\
+-\frac{1}{\sqrt{2}} 
+ \end{pmatrix}.
+ \]
+\[
+CNOT = 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+\end{pmatrix}.
+\]
+Now
+\begin{align*}
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+\end{pmatrix}
+\begin{pmatrix}
+\alpha \\ \beta \\ \frac{1}{\sqrt{2}} \\ -\frac{1}{\sqrt{2}}
+\end{pmatrix} 
+&= 
+\begin{pmatrix}
+\alpha \\
+\beta \\
+-\frac{1}{\sqrt{2}} \\
+\frac{1}{\sqrt{2}}
+\end{pmatrix}.
+\end{align*}
+(a) The resulting state is not entangled. (b) The probability in question is 1. (c) The state of the first qubit does not change.
+
+\section*{edx Problem 2}
+Is the ``phase inversion'' unitary its own inverse? Answer: Yes.
+
+\section*{edx Problem 3}
+Is the ``inversion about the mean'' unitary its own inverse? Answer: Yes.
+
+\section*{edx Problem 4}
+
+\section*{edx Problem 5}
+
+\section*{edx Problem 6}
+Now, consider the case where $\frac{N}{4}$ elements are marked instead of just one. If we run one iteration of Grover's algorithm and measure, what is the probability that we see a marked element?
+
+It appears that the probability in question is $\binom{N}{4}^{-1}$.
+
+\section*{edx Problem 7}
+Which of the following observables correspond to a standard basis measurements Answer: $I$.
+
+\section*{edx Problem 8}
+Which of the following observables correspond to a sign basis measurement? Answer: $H$.
+
+\section*{edx Problem 9}
+Suppose we measure a qubit $\alpha \ket{0} + \beta \ket{1}$ with respect to the observable $I = \begin{pmatrix}
+1 & 0 \\ 0 & 1
+\end{pmatrix}.$ What is the outcome of the measurement? Answer: (1) It is 0 with probability $|\alpha|^2$ with the new state $\ket{0}$, and 1 with probability $|\beta|^2$ with the new state $\ket{1}$.
+
+\section*{edx Problem 10}
+
+\section*{edx Problem 11}
+
+\section*{edx Problem 12}
+The Hamiltonian is 
+\[
+\begin{pmatrix}
+1 & 4 \\ 4 & 1
+\end{pmatrix}.
+\]
+The states of definite energy are
+\[
+\begin{pmatrix}
+1 \\ 1
+\end{pmatrix},
+\begin{pmatrix}
+-1 \\ 1
+\end{pmatrix},
+\]
+and the corresponding energies are 5 and -3.
+
+\section*{edx Problem 13}
+
+\end{document}
